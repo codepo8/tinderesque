@@ -2,6 +2,8 @@
 
 Using tinderesque you can build your own Tinder-like card animation. It is far from the complexity of the real interface, but is a nice way to spice up a list sorter.
 
+![tinderesque animation in action](decks.gif)
+
 ## How it works
 
 The whole functionality of Tinderesque revolves around CSS animations and their JavaScript events. You style and tweak the animations in the `tinderesque.css` file.
