@@ -85,7 +85,7 @@ document.body.addEventListener('deckempty', function(ev) {
 
 This should get you well on the way… 
 
-## But that's not how tinder works! Where is the touch and drag implementation
+## But that's not how Tinder works! Where is the touch and drag implementation???
 
 That's the beauty of open source. Fork, build and send me a pull request. 
 

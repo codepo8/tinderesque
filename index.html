@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tinderesque - a simple Tinder-like card animation and voting system</title>
+  <link rel="stylesheet" type="text/css" href="tinderesque.css">
+  <style type="text/css">
+    body {
+      font-family: helvetica, arial, sans-serif;
+      background: #333;
+      background: linear-gradient(#333,#666);
+      color: #ccc;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+    }
+    header, section, footer {
+      display: block;
+      padding: 0.5em 1em;
+    }
+    header, footer {
+      background: #000;
+      background: linear-gradient(#111,#000);
+    }
+    a {color: lime;}
+    h1, h2 {
+      color: #f8f8f8;
+      font-size: 20px;
+      font-weight: normal;
+      letter-spacing: -1px;
+    }
+    h2 {font-size: 16px;}
+    .floaty .cardcontainer {
+      float: left;
+    }
+    h2 {clear: both;}
+    footer, header, section {
+      display: block;
+    }
+    footer {
+      font-size: 10px; 
+      text-align: right;
+      padding: 3em 0.5em 1em 0.5em;
+    }
+    .nobutton:hover .yes, 
+    .cardcontainer.yes .card {
+      -webkit-animation: yay 0.7s ease-out;
+      animation: yay 0.7s ease-out;
+    }
+    .nobutton:hover .nope,
+    .cardcontainer.nope .card {
+      -webkit-animation: nope 0.7s ease-out;
+      animation: nope 0.7s ease-out;
+    }
+    .card {
+      background: powderblue;
+      color: #000;
+    }
+    .list ul.cardlist {
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tinderesque - a simple Tinder-style card animation</h1>
+  </header>
+  <section>
+
+    <p><a href="https://github.com/codepo8/tinderesque">Get the code</a> and <a href="https://github.com/codepo8/tinderesque/blob/master/README.md">read the instructions</a> how to use it on GitHub.</p>
+
+    <h2>Animation demo: simply hover to see the effect</h2>
+
+    <div class="floaty">
+      <div class="cardcontainer nobutton">
+        <div class="yes card">Yes</div>
+      </div>
+      <div class="cardcontainer nobutton">
+        <div class="nope card">Nope</div>
+      </div>
+    </div>
+
+    <h2>Using buttons to vote yes or no</h2>
+
+    <div class="floaty">
+      <div class="cardcontainer">
+        <div class="card">Card</div>
+        <button class="but-nope">X</button>
+        <button class="but-yay">✔</button>
+      </div>
+
+      <div class="cardcontainer">
+        <div class="card">Card</div>
+        <button class="but-nope">X</button>
+        <button class="but-yay">✔</button>
+      </div>
+    </div>
+
+    <h2>Going through a list of cards</h2>
+
+    <div class="cardcontainer list">
+      <ul class="cardlist">
+        <li class="card current">#1</li>
+        <li class="card">#2</li>
+        <li class="card">#3</li>
+        <li class="card">#4</li>
+        <li class="card">#5</li>
+        <li class="card">#6</li>
+      </ul>
+      <button class="but-nope">X</button>
+      <button class="but-yay">✔</button>
+    </div>
+
+    <h2>Adding counters by listening to custom events</h2>
+    
+    <div class="cardcontainer list">
+      <ul class="cardlist"> 
+        <li class="card current">#1</li>
+        <li class="card">#2</li>
+        <li class="card">#3</li>
+        <li class="card">#4</li>
+        <li class="card">#5</li>
+        <li class="card">#6</li>
+      </ul>
+      <span class="nopes">0</span>
+      <button class="but-nope">X</button>
+      <button class="but-yay">✔</button>
+      <span class="yays">0</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with slight amusement (as love is too strong a word) by Chris Heilmann (<a href="http://twitter.com/codepo8">@codepo8</a>)</p>
+  </footer>
+
+<script src="tinderesque.js"></script>
+<script>
+
+  document.body.addEventListener('nopecard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('yepcard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('deckempty', function(ev) {
+    //console.log(ev);
+  });
+
+
+  document.body.addEventListener('nopecard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.nopes');
+    if (label) {
+      var nopes = +container.nopes || 0;
+      nopes++;
+      container.nopes = nopes;
+      label.innerHTML = container.nopes;
+    }
+  });
+
+  document.body.addEventListener('yepcard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.yays');
+    if (label) {
+      var yeps = +container.yeps || 0;
+      yeps++;
+      container.yeps = yeps;
+      label.innerHTML = container.yeps;
+    }
+  });
+
+  document.body.addEventListener('deckempty', function(ev) {
+    var container = ev.detail.container;
+    var list = container.querySelector('.cardlist');
+    var out = '<li class="card current">#1</li>';
+    for (var i = 2; i < 6; i++) {
+      out += '<li class="card">#' + i + '</li>';
+    }
+    list.innerHTML = out;
+  });
+
+</script>
+</body>
+</html>

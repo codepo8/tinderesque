@@ -1,0 +1,93 @@
+/* Design of a card */
+.card {
+  font-size: 14px;
+  line-height: 200px;
+  text-align:center;
+  width: 150px;
+  height: 200px;
+  display: block;
+  background: #666;
+  -webkit-transform-origin: 50% 99%;
+  transform-origin: 50% 99%;
+}
+.cardcontainer {
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+/* List functionality */
+.list .cardlist {
+  margin: 0;
+  padding: 0;
+}
+.list .card {
+  display: none;
+}
+.list .current {
+  display: block;
+}
+
+/* Button designs */
+
+button {
+  background: #0c0;
+  border: none;
+  color: #fff;
+  border-radius: 50% 50%;
+  width: 2em;
+  height: 2em;
+  margin: 0 .5em;
+  display: inline-block;
+}
+.but-nope {
+  background: #c00;
+}
+
+/*
+  Animations, isn't it 'fun' to repeat all of that, just for Safari? :)
+*/
+
+@keyframes yay {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes yay {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: rotate(40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@keyframes nope {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(-40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes nope {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: rotate(-40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
