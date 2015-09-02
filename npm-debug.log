@@ -1,0 +1,174 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/iojs',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--global',
+1 verbose cli   'speed-test' ]
+2 info using npm@2.10.1
+3 info using node@v2.1.0
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'speed-test', null ]
+7 verbose cache add spec speed-test
+8 silly cache add parsed spec { raw: 'speed-test',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'speed-test',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed speed-test@*
+10 verbose addNamed "*" is a valid semver range for speed-test
+11 silly addNameRange { name: 'speed-test', range: '*', hasData: false }
+12 silly mapToRegistry name speed-test
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/speed-test
+16 verbose addNameRange registry:https://registry.npmjs.org/speed-test not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/speed-test
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 23:07:16
+20 verbose request id b3e19623df69a8b7
+21 http request GET https://registry.npmjs.org/speed-test
+22 http 200 https://registry.npmjs.org/speed-test
+23 silly get cb [ 200,
+23 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly get     etag: '"6FPV84MIUHWNNI9UPEFDWWB5U"',
+23 silly get     'content-type': 'application/json',
+23 silly get     'cache-control': 'max-age=60',
+23 silly get     'content-length': '4286',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Wed, 02 Sep 2015 22:07:15 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '16',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-fra1222-FRA',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1441231635.326941,VS0,VE0',
+23 silly get     vary: 'Accept' } ]
+24 verbose get saving speed-test to /Users/bender/.npm/registry.npmjs.org/speed-test/.cache.json
+25 silly addNameRange number 2 { name: 'speed-test', range: '*', hasData: true }
+26 silly addNameRange versions [ 'speed-test', [ '1.0.0', '1.1.0' ] ]
+27 silly addNamed speed-test@1.1.0
+28 verbose addNamed "1.1.0" is a plain semver version for speed-test
+29 silly mapToRegistry name speed-test
+30 silly mapToRegistry using default registry
+31 silly mapToRegistry registry https://registry.npmjs.org/
+32 silly mapToRegistry uri https://registry.npmjs.org/speed-test
+33 verbose addRemoteTarball https://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz not in flight; adding
+34 verbose addRemoteTarball [ 'https://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz',
+34 verbose addRemoteTarball   '29d6be85b0d9aca077a1c08e58f2e0ae064a452f' ]
+35 info retry fetch attempt 1 at 23:07:16
+36 info attempt registry request try #1 at 23:07:16
+37 http fetch GET https://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz
+38 http fetch 200 https://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz
+39 silly fetchAndShaCheck shasum 29d6be85b0d9aca077a1c08e58f2e0ae064a452f
+40 verbose addTmpTarball /var/folders/tn/v18y56z16bzdbr6t3w21fjrc0000gn/T/npm-37768-331a5f86/registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz not in flight; adding
+41 verbose addTmpTarball already have metadata; skipping unpack for speed-test@1.1.0
+42 silly cache afterAdd speed-test@1.1.0
+43 verbose afterAdd /Users/bender/.npm/speed-test/1.1.0/package/package.json not in flight; writing
+44 verbose afterAdd /Users/bender/.npm/speed-test/1.1.0/package/package.json written
+45 silly install resolved [ { name: 'speed-test',
+45 silly install resolved     version: '1.1.0',
+45 silly install resolved     description: 'Test your internet connection speed and ping using speedtest.net from the CLI',
+45 silly install resolved     license: 'MIT',
+45 silly install resolved     repository:
+45 silly install resolved      { type: 'git',
+45 silly install resolved        url: 'https://github.com/sindresorhus/speed-test' },
+45 silly install resolved     author:
+45 silly install resolved      { name: 'Sindre Sorhus',
+45 silly install resolved        email: 'sindresorhus@gmail.com',
+45 silly install resolved        url: 'sindresorhus.com' },
+45 silly install resolved     bin: { 'speed-test': 'cli.js' },
+45 silly install resolved     engines: { node: '>=0.10.0' },
+45 silly install resolved     scripts: { test: 'xo && node test.js' },
+45 silly install resolved     files: [ 'cli.js' ],
+45 silly install resolved     keywords:
+45 silly install resolved      [ 'cli-app',
+45 silly install resolved        'cli',
+45 silly install resolved        'speed',
+45 silly install resolved        'test',
+45 silly install resolved        'tester',
+45 silly install resolved        'speed-test',
+45 silly install resolved        'speedtest',
+45 silly install resolved        'connection',
+45 silly install resolved        'internet',
+45 silly install resolved        'bandwidth',
+45 silly install resolved        'ping',
+45 silly install resolved        'measure',
+45 silly install resolved        'check' ],
+45 silly install resolved     dependencies:
+45 silly install resolved      { chalk: '^1.1.0',
+45 silly install resolved        'elegant-spinner': '^1.0.0',
+45 silly install resolved        'log-update': '^1.0.0',
+45 silly install resolved        meow: '^3.3.0',
+45 silly install resolved        'round-to': '^1.0.0',
+45 silly install resolved        'speedtest-net': '^1.0.3',
+45 silly install resolved        'update-notifier': '^0.5.0' },
+45 silly install resolved     devDependencies: { ava: '0.0.4', xo: '*' },
+45 silly install resolved     gitHead: '4c6331142f3b9dfc21f09d2347cd38be752e49e8',
+45 silly install resolved     bugs: { url: 'https://github.com/sindresorhus/speed-test/issues' },
+45 silly install resolved     homepage: 'https://github.com/sindresorhus/speed-test',
+45 silly install resolved     _id: 'speed-test@1.1.0',
+45 silly install resolved     _shasum: '29d6be85b0d9aca077a1c08e58f2e0ae064a452f',
+45 silly install resolved     _from: 'speed-test@*',
+45 silly install resolved     _npmVersion: '2.11.2',
+45 silly install resolved     _nodeVersion: '0.12.5',
+45 silly install resolved     _npmUser: { name: 'sindresorhus', email: 'sindresorhus@gmail.com' },
+45 silly install resolved     dist:
+45 silly install resolved      { shasum: '29d6be85b0d9aca077a1c08e58f2e0ae064a452f',
+45 silly install resolved        tarball: 'http://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz' },
+45 silly install resolved     maintainers: [ [Object] ],
+45 silly install resolved     directories: {},
+45 silly install resolved     _resolved: 'https://registry.npmjs.org/speed-test/-/speed-test-1.1.0.tgz' } ]
+46 info install speed-test@1.1.0 into /usr/local/lib
+47 info installOne speed-test@1.1.0
+48 verbose installOne of speed-test to /usr/local/lib not in flight; installing
+49 verbose lock using /Users/bender/.npm/_locks/speed-test-54434aa491e83727.lock for /usr/local/lib/node_modules/speed-test
+50 silly install write writing speed-test 1.1.0 to /usr/local/lib/node_modules/speed-test
+51 verbose unbuild lib/node_modules/speed-test
+52 silly gentlyRm /usr/local/lib/node_modules/speed-test is being purged from base /usr/local
+53 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/speed-test
+54 verbose tar unpack /Users/bender/.npm/speed-test/1.1.0/package.tgz
+55 verbose tar unpacking to /usr/local/lib/node_modules/speed-test
+56 silly gentlyRm /usr/local/lib/node_modules/speed-test is being purged
+57 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/speed-test
+58 silly gunzTarPerm modes [ '755', '644' ]
+59 error tar.unpack untar error /Users/bender/.npm/speed-test/1.1.0/package.tgz
+60 verbose unlock done using /Users/bender/.npm/_locks/speed-test-54434aa491e83727.lock for /usr/local/lib/node_modules/speed-test
+61 verbose fstream_path /usr/local/lib/node_modules/speed-test
+62 verbose fstream_type Directory
+63 verbose fstream_class DirWriter
+64 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/speed-test'
+64 verbose stack     at Error (native)
+65 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+65 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+65 verbose fstream_stack FSReqWrap.oncomplete (fs.js:78:15)
+66 verbose cwd /Users/bender/Downloads/codes/tinderesque
+67 error Darwin 14.5.0
+68 error argv "/usr/local/bin/iojs" "/usr/local/bin/npm" "install" "--global" "speed-test"
+69 error node v2.1.0
+70 error npm  v2.10.1
+71 error path /usr/local/lib/node_modules/speed-test
+72 error code EACCES
+73 error errno -13
+74 error syscall mkdir
+75 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/speed-test'
+75 error     at Error (native)
+75 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/speed-test']
+75 error   errno: -13,
+75 error   code: 'EACCES',
+75 error   syscall: 'mkdir',
+75 error   path: '/usr/local/lib/node_modules/speed-test',
+75 error   fstream_type: 'Directory',
+75 error   fstream_path: '/usr/local/lib/node_modules/speed-test',
+75 error   fstream_class: 'DirWriter',
+75 error   fstream_stack:
+75 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+75 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+75 error      'FSReqWrap.oncomplete (fs.js:78:15)' ] }
+76 error Please try running this command again as root/Administrator.
+77 verbose exit [ -13, true ]
+78 verbose unbuild lib/node_modules/speed-test
+79 silly gentlyRm /usr/local/lib/node_modules/speed-test is being purged from base /usr/local
+80 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/speed-test

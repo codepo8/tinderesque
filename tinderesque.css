@@ -44,6 +44,16 @@ button {
   background: #c00;
 }
 
+.cardcontainer.yes .card {
+  -webkit-animation: yay 0.7s ease-out;
+  animation: yay 0.7s ease-out;
+}
+.cardcontainer.nope .card {
+  -webkit-animation: nope 0.7s ease-out;
+  animation: nope 0.7s ease-out;
+}
+
+
 /*
   Animations, isn't it 'fun' to repeat all of that, just for Safari? :)
 */

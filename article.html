@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tinderesque - a simple Tinder-like card animation and voting system</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="tinderesque.css">
+  <style type="text/css">
+    body {
+      font-family: helvetica, arial, sans-serif;
+      background: #333;
+      background: linear-gradient(#333,#666);
+      color: #ccc;
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    header, section, footer {
+      display: block;
+      padding: 0.5em 1em;
+    }
+    header, footer {
+      background: #000;
+      background: linear-gradient(#111,#000);
+    }
+    a {color: lime;}
+    h1, h2 {
+      color: #f8f8f8;
+      font-size: 24px;
+      font-weight: normal;
+    }
+    h2 {font-size: 20px;}
+    .floaty .cardcontainer {
+      float: left;
+    }
+    h2 {clear: both;}
+    footer, header, section {
+      display: block;
+    }
+    footer {
+      font-size: 10px; 
+      text-align: right;
+      padding: 3em 0.5em 1em 0.5em;
+    }
+    .nobutton:hover .yes, 
+    .cardcontainer.yes .card {
+      -webkit-animation: yay 0.7s ease-out;
+      animation: yay 0.7s ease-out;
+    }
+    .nobutton:hover .nope,
+    .cardcontainer.nope .card {
+      -webkit-animation: nope 0.7s ease-out;
+      animation: nope 0.7s ease-out;
+    }
+    .card {
+      background: powderblue;
+      color: #000;
+    }
+    .list ul.cardlist {
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tinderesque - a simple Tinder-style card animation</h1>
+  </header>
+  <section>
+
+
+Tinder is a very successful dating app, and one of its features is a way to say yes or no to prospective partners by swiping right or left or pressing a yes or no button. The interface is cards that drop when you press the buttons. 
+
+As with any successful interface, a lot of clones that mimick them happen very fast. One of those is <a href="http://fontflame.com/">FontFlame - a Tinder for Font Pairings</a>. When I saw this one, I thought the animation isn't right (it just moves to the right or left and fades, there's no turning or popping up). I tried to fix the CSS animation to match more closely what Tinder is doing, but to my dismay I found out that whilst Fontflame uses CSS animations, they get over-ridden by jQuery ones. I contacted the author and offered my CSS animation to replace the current one. 
+
+As coding is fun, I then proceeded to pack this up into a quick solution consisting of a CSS animation and some JavaScript to control the voting process. 
+
+I called it Tinderesque and you can <a href="https://github.com/codepo8/tinderesque">Get the code</a> and <a href="https://github.com/codepo8/tinderesque/blob/master/README.md">read the instructions</a> how to use it on GitHub.
+
+Here's some explanations on how Tinderesque works.
+
+<h2>The Tinderesque animation</h2>
+
+Animating the cards is no rocket science: you rotate the card after setting the transformation origin to the bottom of the card and you shift it up a bit to get a "discard" effect. You can see the animation in action here:
+
+First up, we need to define the HTML of the collection of cards we want to vote on. This should be pretty straight forward:
+
+<pre lang="xml"><div class="cardcontainer list">
+  <ul class="cardlist">
+    <li class="card current">#1</li>
+    <li class="card">#2</li>
+    <li class="card">#3</li>
+    <li class="card">#4</li>
+    <li class="card">#5</li>
+    <li class="card">#6</li>
+  </ul>
+  <button class="but-nope">X</button>
+  <button class="but-yay">✔</button>
+</div></pre>
+
+To achieve the animation effect we need to give the card we want to animate some dimensions and set its transform origin to its bottom:
+
+<pre lang="css">.card {
+  width: 150px;
+  height: 200px;
+  display: block;
+  background: #666;
+  transform-origin: 50% 99%;
+}</pre>
+
+This ensures that the card doesn't get rotated around its centre but the bottom. 
+
+For the positive scenario, we rotate the card clockwise and push it up a bit to get the discard effect. This can be done using a rotate and translateY transformation. We also animate the opacity of the card from 1 to 0, effectively hiding it.
+
+<pre lang="css">@keyframes yay {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(40deg) translateY(-80px);
+    opacity: 0;
+  }
+}</pre>
+
+For the negative use case, we rotate the card counter-clockwise:
+
+<pre lang="css">keyframes nope {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(-40deg) translateY(-80px);
+    opacity: 0;
+  }
+}</pre>
+
+
+
+
+
+    <h2>Animation demo: simply hover to see the effect</h2>
+
+    <div class="floaty">
+      <div class="cardcontainer nobutton">
+        <div class="yes card">Yes</div>
+      </div>
+      <div class="cardcontainer nobutton">
+        <div class="nope card">Nope</div>
+      </div>
+    </div>
+
+    <h2>Using buttons to vote yes or no</h2>
+
+    <div class="floaty">
+      <div class="cardcontainer">
+        <div class="card">Card</div>
+        <button class="but-nope">X</button>
+        <button class="but-yay">✔</button>
+      </div>
+
+      <div class="cardcontainer">
+        <div class="card">Card</div>
+        <button class="but-nope">X</button>
+        <button class="but-yay">✔</button>
+      </div>
+    </div>
+
+    <h2>Going through a list of cards</h2>
+
+    <div class="cardcontainer list">
+      <ul class="cardlist">
+        <li class="card current">#1</li>
+        <li class="card">#2</li>
+        <li class="card">#3</li>
+        <li class="card">#4</li>
+        <li class="card">#5</li>
+        <li class="card">#6</li>
+      </ul>
+      <button class="but-nope">X</button>
+      <button class="but-yay">✔</button>
+    </div>
+
+    <h2>Adding counters by listening to custom events</h2>
+    
+    <div class="cardcontainer list">
+      <ul class="cardlist"> 
+        <li class="card current">#1</li>
+        <li class="card">#2</li>
+        <li class="card">#3</li>
+        <li class="card">#4</li>
+        <li class="card">#5</li>
+        <li class="card">#6</li>
+      </ul>
+      <span class="nopes">0</span>
+      <button class="but-nope">X</button>
+      <button class="but-yay">✔</button>
+      <span class="yays">0</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with slight amusement (as love is too strong a word) by Chris Heilmann (<a href="http://twitter.com/codepo8">@codepo8</a>)</p>
+  </footer>
+
+<script src="tinderesque.js"></script>
+<script>
+
+  document.body.addEventListener('nopecard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('yepcard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('deckempty', function(ev) {
+    //console.log(ev);
+  });
+
+
+  document.body.addEventListener('nopecard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.nopes');
+    if (label) {
+      var nopes = +container.nopes || 0;
+      nopes++;
+      container.nopes = nopes;
+      label.innerHTML = container.nopes;
+    }
+  });
+
+  document.body.addEventListener('yepcard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.yays');
+    if (label) {
+      var yeps = +container.yeps || 0;
+      yeps++;
+      container.yeps = yeps;
+      label.innerHTML = container.yeps;
+    }
+  });
+
+  document.body.addEventListener('deckempty', function(ev) {
+    var container = ev.detail.container;
+    var list = container.querySelector('.cardlist');
+    var out = '<li class="card current">#1</li>';
+    for (var i = 2; i < 6; i++) {
+      out += '<li class="card">#' + i + '</li>';
+    }
+    list.innerHTML = out;
+  });
+
+</script>
+</body>
+</html>
