@@ -2,6 +2,8 @@
 
 Using tinderesque you can build your own Tinder-like card animation. It is far from the complexity of the real interface, but is a nice way to spice up a list sorter.
 
+If you want to see a demo, check out the <a href="http://codepo8.github.io/tinderesque/demos/cuter/index.html">cuter demo</a> included here that allows you to pick cute animals from a deck and get a list of all of them as a result.
+
 ![tinderesque animation in action](decks.gif)
 
 ## How it works
