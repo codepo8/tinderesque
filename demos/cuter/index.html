@@ -5,146 +5,37 @@
   <title>Cuter - vote on cute animals</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="../../tinderesque.css">
-  <style type="text/css">
-    body {
-      font-family: helvetica, arial, sans-serif;
-      background: #333;
-      color: #ccc;
-      font-size: 16px;
-      padding: 0;
-      margin: 0;
-    }
-    header, section, footer {
-      display: block;
-      padding: 0.5em 1em;
-    }
-    header, footer {
-      background: #000;
-      background: linear-gradient(#111,#000);
-    }
-    a {color: lime;}
-    h1 {
-      color: #f8f8f8;
-      font-size: 24px;
-      font-weight: normal;
-      text-align: center;
-    }
-    footer {
-      background: transparent;
-      clear: both;
-      font-size: 10px; 
-      text-align: center;
-      padding: 3em 0.5em 1em 0.5em;
-    }
-    .card {
-      color: #000;
-      width: 250px;
-      height: 300px;
-    }
-    .cardcontainer {
-      width: 250px;
-      position: relative;
-      overflow: hidden;
-      margin: 0 auto;
-    }
-    .list ul.cardlist {
-      margin: 0 0 10px 0;
-      height: 300px;
-    }
-    img {display: block;}
-    .but-nope::after {
-      content: 'nope';
-      position: absolute;
-      top: -35px;
-      left: 20px;
-      font-size: 30px;
-      transform: rotate(-30deg);
-      background: #c00;
-      padding: .2em .4em;
-      color: #fff;
-      display: block;
-      transition: 0.4s;
-      opacity: 0;
-    }
-    .but-nope:hover::after {
-      opacity: 1;
-      top: 35px;
-    }
-    .but-yay::after {
-      content: 'yep';
-      position: absolute;
-      top: -35px;
-      right: 20px;
-      font-size: 30px;
-      background: #0c0;
-      color: #fff;
-      padding: .2em .4em;
-      transform: rotate(30deg);
-      display: block;
-      transition: 0.4s;
-      opacity: 0;
-    }
-    .but-yay:hover::after {
-      opacity: 1;
-      top: 35px;
-    }
-    #results {
-      opacity: 0;
-      position: absolute;
-      top: -20000px;
-      transition: opacity 0.5s;
-      margin: 0;
-      padding: 0;
-    }
-    #results li {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      float: left;
-      padding-left: 5px;
-    }
-    #results.live {
-      top: 0;
-      position: relative;
-      opacity: 1;
-    }
-    #counter {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-    }
- </style>
+  <link rel="stylesheet" type="text/css" href="cuter.css">
 </head>
 <body>
   <header>
     <h1>Cuter - collect or discard cute animals</h1>
   </header>
   <section>
-
     <div class="cardcontainer list">
       <ul class="cardlist">
-    <li class="card current"><img src="images/a-push-please.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/amazing-dog.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/awesome-mix-dog.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/baby-amardillo.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/baby-hippo-nom.jpg" alt="" title=""></li>
+    <li class="card current"><img src="images/a-push-please.jpg" alt=""></li>
+    <li class="card"><img src="images/amazing-dog.jpg" alt=""></li>
+    <li class="card"><img src="images/awesome-mix-dog.jpg" alt=""></li>
+    <li class="card"><img src="images/baby-amardillo.jpg" alt=""></li>
+    <li class="card"><img src="images/baby-hippo-nom.jpg" alt=""></li>
     <template>
-    <li class="card"><img src="images/baby-rhino.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/barbie-frenchie.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/basset-helmet.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/bear-dog.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/bear-puppy-fluff.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/best-day-ever-puppy.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/bleh-puppy.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/bleh-tapir.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/cat-on-stairs.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/chocolate-puppy.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/corgisquee.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/corns-and-penny.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/crazy-otter.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/cute-brown-puppy.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/dalmatian.jpg" alt="" title=""></li>
-    <li class="card"><img src="images/derpy-hedgehog.jpg" alt="" title=""></li>
+    <li class="card"><img src="images/baby-rhino.jpg" alt=""></li>
+    <li class="card"><img src="images/barbie-frenchie.jpg" alt=""></li>
+    <li class="card"><img src="images/basset-helmet.jpg" alt=""></li>
+    <li class="card"><img src="images/bear-dog.jpg" alt=""></li>
+    <li class="card"><img src="images/bear-puppy-fluff.jpg" alt=""></li>
+    <li class="card"><img src="images/best-day-ever-puppy.jpg" alt=""></li>
+    <li class="card"><img src="images/bleh-puppy.jpg" alt=""></li>
+    <li class="card"><img src="images/bleh-tapir.jpg" alt=""></li>
+    <li class="card"><img src="images/cat-on-stairs.jpg" alt=""></li>
+    <li class="card"><img src="images/chocolate-puppy.jpg" alt=""></li>
+    <li class="card"><img src="images/corgisquee.jpg" alt=""></li>
+    <li class="card"><img src="images/corns-and-penny.jpg" alt=""></li>
+    <li class="card"><img src="images/crazy-otter.jpg" alt=""></li>
+    <li class="card"><img src="images/cute-brown-puppy.jpg" alt=""></li>
+    <li class="card"><img src="images/dalmatian.jpg" alt=""></li>
+    <li class="card"><img src="images/derpy-hedgehog.jpg" alt=""></li>
     </template>
       </ul>
       <button class="but-nope">X</button>
@@ -153,7 +44,6 @@
     </div>
     <ul class="cardlist" id="results">
     </ul>
-
   </section>
 
   <footer>
@@ -161,37 +51,7 @@
   </footer>
 
 <script src="../../tinderesque.js"></script>
-<script>
-  var all = 0;
-  var results = document.querySelector('#results');
-  var counter = document.querySelector('#counter');
-
-  document.body.addEventListener('yepcard', function(ev) {
-    results.innerHTML += '<li>'+ev.detail.card.innerHTML+'</li>';
-    updatecounter();
-  });
-  document.body.addEventListener('nopecard', function(ev) {
-    updatecounter();
-  });
-  function updatecounter() {
-    --all;
-    counter.innerHTML = all;
-  }
-
-
-  document.body.addEventListener('deckempty', function(ev) {
-    results.classList.add('live');
-    ev.detail.container.style.display = 'none';
-  });
-
- window.addEventListener('load', function(ev) { 
-    var t = document.querySelector('template');
-    t.parentNode.innerHTML += t.innerHTML;
-    all = document.body.querySelectorAll('.card').length + 1;
-    updatecounter();
-    t.remove();
- });
-</script>
+<script src="cuter.js"></script>
 </body>
 </html>
 
