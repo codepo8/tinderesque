@@ -35,8 +35,9 @@ button {
   border: none;
   color: #fff;
   border-radius: 50% 50%;
-  width: 2em;
-  height: 2em;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   margin: 0 .5em;
   display: inline-block;
 }
