@@ -41,8 +41,16 @@ button {
   margin: 0 .5em;
   display: inline-block;
 }
+button:focus { 
+  outline: 0;
+  background: #0f0;
+}
 .but-nope {
   background: #c00;
+}
+.but-nope:focus { 
+  outline: 0;
+  background: #f00;
 }
 
 .cardcontainer.yes .card {
