@@ -21,6 +21,14 @@
         }
       );
     }
+    if (t.classList.contains('current')) {
+      fireCustomEvent('cardchosen',
+        {
+          container: getContainer(t),
+          card: t
+        }
+      );
+    }
   }
 
   function fireCustomEvent(name, payload) {

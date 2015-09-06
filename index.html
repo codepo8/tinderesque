@@ -42,13 +42,11 @@
       text-align: right;
       padding: 3em 0.5em 1em 0.5em;
     }
-    .nobutton:hover .yes, 
-    .cardcontainer.yes .card {
+    .nobutton:hover .yes {
       -webkit-animation: yay 0.7s ease-out;
       animation: yay 0.7s ease-out;
     }
-    .nobutton:hover .nope,
-    .cardcontainer.nope .card {
+    .nobutton:hover .nope {
       -webkit-animation: nope 0.7s ease-out;
       animation: nope 0.7s ease-out;
     }
@@ -143,7 +141,10 @@
     // console.log(ev.detail);
   });
   document.body.addEventListener('deckempty', function(ev) {
-    //console.log(ev);
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('cardchosen', function(ev) {
+    // console.log(ev.detail);
   });
 
 

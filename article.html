@@ -9,7 +9,6 @@
     body {
       font-family: helvetica, arial, sans-serif;
       background: #333;
-      background: linear-gradient(#333,#666);
       color: #ccc;
       font-size: 16px;
       padding: 0;
@@ -22,6 +21,14 @@
     header, footer {
       background: #000;
       background: linear-gradient(#111,#000);
+    }
+    section {
+      width: 80%;
+      margin: 0;
+    }
+    pre {
+      background: #222;
+      padding: .5em;
     }
     a {color: lime;}
     h1, h2 {
@@ -37,27 +44,15 @@
     footer, header, section {
       display: block;
     }
+    p {
+      font-size: 18px;
+      line-height: 1.3em;
+    }
+
     footer {
       font-size: 10px; 
       text-align: right;
       padding: 3em 0.5em 1em 0.5em;
-    }
-    .nobutton:hover .yes, 
-    .cardcontainer.yes .card {
-      -webkit-animation: yay 0.7s ease-out;
-      animation: yay 0.7s ease-out;
-    }
-    .nobutton:hover .nope,
-    .cardcontainer.nope .card {
-      -webkit-animation: nope 0.7s ease-out;
-      animation: nope 0.7s ease-out;
-    }
-    .card {
-      background: powderblue;
-      color: #000;
-    }
-    .list ul.cardlist {
-      padding-bottom: 10px;
     }
   </style>
 </head>
@@ -67,37 +62,38 @@
   </header>
   <section>
 
+<p>Tinder is a very successful dating app, and one of its features is a way to say yes or no to prospective partners by swiping right or left or pressing a yes or no button. The interface is cards that drop when you press the buttons. </p>
 
-Tinder is a very successful dating app, and one of its features is a way to say yes or no to prospective partners by swiping right or left or pressing a yes or no button. The interface is cards that drop when you press the buttons. 
+<p>As with any successful interface, a lot of clones that mimick them happen very fast. One of those is <a href="http://fontflame.com/">FontFlame - a Tinder for Font Pairings</a>. When I saw this one, I thought the animation isn't right (it just moves to the right or left and fades, there's no turning or popping up). I tried to fix the CSS animation to match more closely what Tinder is doing, but to my dismay I found out that whilst Fontflame uses CSS animations, they get over-ridden by jQuery ones. I contacted the author and offered my CSS animation to replace the current one. </p>
 
-As with any successful interface, a lot of clones that mimick them happen very fast. One of those is <a href="http://fontflame.com/">FontFlame - a Tinder for Font Pairings</a>. When I saw this one, I thought the animation isn't right (it just moves to the right or left and fades, there's no turning or popping up). I tried to fix the CSS animation to match more closely what Tinder is doing, but to my dismay I found out that whilst Fontflame uses CSS animations, they get over-ridden by jQuery ones. I contacted the author and offered my CSS animation to replace the current one. 
+<p>Just for fun, I packed this up into a quick solution consisting of a CSS animation and some JavaScript to control the voting process.</p> 
 
-As coding is fun, I then proceeded to pack this up into a quick solution consisting of a CSS animation and some JavaScript to control the voting process. 
+<img src="decks.gif" alt="Tinderesque in action">
 
-I called it Tinderesque and you can <a href="https://github.com/codepo8/tinderesque">Get the code</a> and <a href="https://github.com/codepo8/tinderesque/blob/master/README.md">read the instructions</a> how to use it on GitHub.
+<p>I called it Tinderesque. You can <a href="http://codepo8.github.io/tinderesque/">see it in action</a>, <a href="https://github.com/codepo8/tinderesque">Get the code</a> and <a href="https://github.com/codepo8/tinderesque/blob/master/README.md">read the instructions</a> how to use it on GitHub.</p>
 
-Here's some explanations on how Tinderesque works.
+<p>Here's some explanations on how Tinderesque works.</p>
 
 <h2>The Tinderesque animation</h2>
 
-Animating the cards is no rocket science: you rotate the card after setting the transformation origin to the bottom of the card and you shift it up a bit to get a "discard" effect. You can see the animation in action here:
+<p>Animating the cards is no rocket science: we rotate the card after setting the transformation origin to the bottom of the card and you shift it up a bit to get a "discard" effect.</p>
 
-First up, we need to define the HTML of the collection of cards we want to vote on. This should be pretty straight forward:
+<p>First up, we need to define the HTML of the collection of cards we want to vote on. This should be pretty straight forward:</p>
 
-<pre lang="xml"><div class="cardcontainer list">
-  <ul class="cardlist">
-    <li class="card current">#1</li>
-    <li class="card">#2</li>
-    <li class="card">#3</li>
-    <li class="card">#4</li>
-    <li class="card">#5</li>
-    <li class="card">#6</li>
-  </ul>
-  <button class="but-nope">X</button>
-  <button class="but-yay">✔</button>
-</div></pre>
+<pre lang="xml">&lt;div class="cardcontainer list">
+  &lt;ul class="cardlist">
+    &lt;li class="card current">#1&lt;/li>
+    &lt;li class="card">#2&lt;/li>
+    &lt;li class="card">#3&lt;/li>
+    &lt;li class="card">#4&lt;/li>
+    &lt;li class="card">#5&lt;/li>
+    &lt;li class="card">#6&lt;/li>
+  &lt;/ul>
+  &lt;button class="but-nope">X&lt;/button>
+  &lt;button class="but-yay">✔&lt;/button>
+&lt;/div></pre>
 
-To achieve the animation effect we need to give the card we want to animate some dimensions and set its transform origin to its bottom:
+<p>To achieve the animation effect we need to give the card we want to animate some dimensions and set its transform origin to its bottom:</p>
 
 <pre lang="css">.card {
   width: 150px;
@@ -107,9 +103,9 @@ To achieve the animation effect we need to give the card we want to animate some
   transform-origin: 50% 99%;
 }</pre>
 
-This ensures that the card doesn't get rotated around its centre but the bottom. 
+<p>This ensures that the card doesn't get rotated around its centre but the bottom instead.</p>
 
-For the positive scenario, we rotate the card clockwise and push it up a bit to get the discard effect. This can be done using a rotate and translateY transformation. We also animate the opacity of the card from 1 to 0, effectively hiding it.
+<p>For the positive scenario, we rotate the card clockwise and push it up a bit to get the discard effect. This can be done using a <code>rotate</code> and <code>translateY</code> transformation. We also animate the <code>opacity</code> of the card from 1 to 0, effectively hiding it.</p>
 
 <pre lang="css">@keyframes yay {
   from {
@@ -122,9 +118,9 @@ For the positive scenario, we rotate the card clockwise and push it up a bit to 
   }
 }</pre>
 
-For the negative use case, we rotate the card counter-clockwise:
+<p>For the negative use case, we rotate the card counter-clockwise:</p>
 
-<pre lang="css">keyframes nope {
+<pre lang="css">@keyframes nope {
   from {
     transform: rotate(0deg);
     opacity: 1;
@@ -135,120 +131,167 @@ For the negative use case, we rotate the card counter-clockwise:
   }
 }</pre>
 
+<p>We then trigger these animations by adding and removing classes on the parent elmement of the cards:</p>
 
+<pre lang="css">.cardcontainer.yes .card {
+  animation: yay 0.7s ease-out;
+}
+.cardcontainer.nope .card {
+  animation: nope 0.7s ease-out;
+}
+</pre>
 
+<h2>Going through the whole card deck</h2>
 
+<p>In order to go through the card deck two things must happen: </p>
 
-    <h2>Animation demo: simply hover to see the effect</h2>
+<ul><li>We need to animate the current card using the positive or negative animation</li>
+<li>When the animation is finished, we need to remove the card from the document and show the next one.</li> </ul>
 
-    <div class="floaty">
-      <div class="cardcontainer nobutton">
-        <div class="yes card">Yes</div>
-      </div>
-      <div class="cardcontainer nobutton">
-        <div class="nope card">Nope</div>
-      </div>
-    </div>
+<p>By default, we hide all the cards in the deck. Only the one with the class of <code>current</code> is visible:</p>
 
-    <h2>Using buttons to vote yes or no</h2>
+<pre lang="css">.list .card {
+  display: none;
+}
+.list .current {
+  display: block;
+}</pre>
 
-    <div class="floaty">
-      <div class="cardcontainer">
-        <div class="card">Card</div>
-        <button class="but-nope">X</button>
-        <button class="but-yay">✔</button>
-      </div>
+<p>This means that we need to shift the class of <code>current</code> to the next card once this one has been approved or discared. But first, we need to trigger the animation. In order to achieve this, we need either a hover or some clever trickery with checkboxes in CSS. It is more extensible though to use JavaScript. </p>
 
-      <div class="cardcontainer">
-        <div class="card">Card</div>
-        <button class="but-nope">X</button>
-        <button class="but-yay">✔</button>
-      </div>
-    </div>
+<h2>Triggering the animations</h2>
 
-    <h2>Going through a list of cards</h2>
+<p>All we need to trigger the animations is adding an event handler attached to the buttons in the HTML. Depending on which button was pressed we add a <code>yes</code> or <code>nope</code> class to the parent element of the button - in this case, the <code>cardcontainer</code> DIV. </p>
 
-    <div class="cardcontainer list">
-      <ul class="cardlist">
-        <li class="card current">#1</li>
-        <li class="card">#2</li>
-        <li class="card">#3</li>
-        <li class="card">#4</li>
-        <li class="card">#5</li>
-        <li class="card">#6</li>
-      </ul>
-      <button class="but-nope">X</button>
-      <button class="but-yay">✔</button>
-    </div>
+<pre lang="javascript">function animatecard(ev) {
+  var t = ev.target;
+  if (t.className === 'but-nope') {
+    t.parentNode.classList.add('nope');
+  }
+  if (t.className === 'but-yay') {
+    t.parentNode.classList.add('yes');
+  }
+}
+document.body.addEventListener('click', animatecard);</pre>
 
-    <h2>Adding counters by listening to custom events</h2>
-    
-    <div class="cardcontainer list">
-      <ul class="cardlist"> 
-        <li class="card current">#1</li>
-        <li class="card">#2</li>
-        <li class="card">#3</li>
-        <li class="card">#4</li>
-        <li class="card">#5</li>
-        <li class="card">#6</li>
-      </ul>
-      <span class="nopes">0</span>
-      <button class="but-nope">X</button>
-      <button class="but-yay">✔</button>
-      <span class="yays">0</span>
-    </div>
-  </section>
+<p>We're using event delegation here with a click handler on the body of the document. We can of course extend this to pointer or touch handlers to allow for touch events and simulating swipe gestures.</p>
 
-  <footer>
-    <p>Made with slight amusement (as love is too strong a word) by Chris Heilmann (<a href="http://twitter.com/codepo8">@codepo8</a>)</p>
-  </footer>
+<h2>Acting after the animation using events</h2>
 
-<script src="tinderesque.js"></script>
-<script>
+<p>Our card has now been animated and is invisible, but it is still in the document and the next card isn't visible yet. We need to remove the card and shift the <code>current</code> class to the next card in the deck. </p>
 
-  document.body.addEventListener('nopecard', function(ev) {
-    // console.log(ev.detail);
-  });
-  document.body.addEventListener('yepcard', function(ev) {
-    // console.log(ev.detail);
-  });
-  document.body.addEventListener('deckempty', function(ev) {
-    //console.log(ev);
-  });
+<p>Every CSS animation has an <code>animationend</code> event we can use for that. The event gives us the name of the event, which gives us the name of the class to remove.</p>
 
+<pre lang="javascript">function animationdone(ev) {
 
-  document.body.addEventListener('nopecard', function(ev) {
-    var container = ev.detail.container;
-    var label = container.querySelector('.nopes');
-    if (label) {
-      var nopes = +container.nopes || 0;
-      nopes++;
-      container.nopes = nopes;
-      label.innerHTML = container.nopes;
+  // get the container
+  var origin = ev.target.parentNode;
+
+  // remove the appropriate class
+  // depending on the animation name
+  if (ev.animationName === 'yay') {
+    origin.classList.remove('yes');
+  }
+  if (ev.animationName === 'nope') {
+    origin.classList.remove('nope');
+  }
+
+  // if any of the card events have 
+  // ended…
+  if (ev.animationName === 'nope' ||
+      ev.animationName === 'yay') {
+
+  // remove the first card in the element
+    origin.querySelector('.current').remove();
+
+  // if there are no cards left, do nothing
+    if (!origin.querySelector('.card')) {
+      // no more cards left - 
+      // TODO other functionality
+    } else {
+
+  // otherwise shift the 'current' class to 
+  // the next card 
+      origin.querySelector('.card').
+        classList.add('current');
     }
-  });
+  }
+}
+document.body.addEventListener(
+  'animationend', animationdone
+);</pre>
 
-  document.body.addEventListener('yepcard', function(ev) {
-    var container = ev.detail.container;
-    var label = container.querySelector('.yays');
-    if (label) {
-      var yeps = +container.yeps || 0;
-      yeps++;
-      container.yeps = yeps;
-      label.innerHTML = container.yeps;
-    }
-  });
+<p>That's more or less all we need to do. Except that Safari still hasn't joined us in the year 2015. That's why we need to repeat both the CSS animation definitions in our CSS with <code>-webkit-</code> prefixes and add an event handler for <code>webkitAnimationEnd</code>. I refuse to do so here, as this is depressing, but you can see it in the tinderesque source code. </p>
 
-  document.body.addEventListener('deckempty', function(ev) {
-    var container = ev.detail.container;
-    var list = container.querySelector('.cardlist');
-    var out = '<li class="card current">#1</li>';
-    for (var i = 2; i < 6; i++) {
-      out += '<li class="card">#' + i + '</li>';
-    }
-    list.innerHTML = out;
-  });
+<h2>Extending the functionality using Custom Events</h2>
 
-</script>
+<p>The functionality now is pretty basic, which means we want to make it as easy as possible to extend it. The simplest way to do that is to add <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">Custom Events</a> that fire when things happen to our card deck. This is as easy as using this function:</p>
+
+<pre lang="javascript">function fireCustomEvent(name, payload) {
+  var newevent = new CustomEvent(name, {
+    detail: payload
+  });
+  document.body.dispatchEvent(newevent);
+}</pre>
+
+<p>Custom events can get a payload - you can define what the listener gets as parameters. In the case of tinderesque, the animatecard function has been extended to send a reference to the button that was clicked, its container element (in case you have several decks) and a copy of the current card.</p>
+
+<pre lang="javascript">function animatecard(ev) {
+  var t = ev.target;
+  if (t.className === 'but-nope') {
+    t.parentNode.classList.add('nope');
+    fireCustomEvent('nopecard',
+      {
+        origin: t,
+        container: t.parentNode,
+        card: t.parentNode.querySelector('.card')
+      }
+    );
+  }
+  if (t.className === 'but-yay') {
+    t.parentNode.classList.add('yes');
+    fireCustomEvent('yepcard',
+      {
+        origin: t,
+        container: t.parentNode,
+        card: t.parentNode.querySelector('.card')
+      }
+    );
+  }
+}</pre>
+
+<p>This allows you to read the content of the card before it gets removed from the document.</p>
+
+<img src="reading-cards.gif" alt="Reading cards before they get discarded">
+
+<pre lang="javascript">var b = document.body;
+b.addEventListener('nopecard', function(ev) {
+  console.log(
+    ev.detail.card,
+    ev.detail.card.innerHTML
+  );
+});
+b.addEventListener('yepcard', function(ev) {
+  console.log(
+    ev.detail.card,
+    ev.detail.card.innerHTML
+  );
+});</pre>
+
+<p>Tinderesque also fires a custom event called <code>deckempty</code> when the last card got removed from the list. In <a href="http://codepo8.github.io/tinderesque/">the demo page</a> this is used to re-stack the deck:</p>
+
+<pre lang="javascript">var b = document.body;
+b.addEventListener('deckempty', function(ev) {
+  var container = ev.detail.container;
+  var list = container.querySelector('.cardlist');
+  var out = '&lt;li class="card current">#1&lt;/li>';
+  for (var i = 2; i &lt; 6; i++) {
+    out += '&lt;li class="card">#' + i + '&lt;/li>';
+  }
+  list.innerHTML = out;
+});</pre>
+
+<p>This should get you well on the way to build your own Tinder-like interface. If I find the time, I will record a screencast doing exactly that.</p>
+
 </body>
 </html>

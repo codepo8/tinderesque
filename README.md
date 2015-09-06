@@ -36,6 +36,7 @@ Cards that have been voted on will be removed from the document. The functionali
 
 * `nopecard` fires when the user clicked the "no" button
 * `yepcard` fires when the user clicked the "yes" button 
+* `cardchosen` fires when the user clicked the current card
 * `deckempty` fires when all cards are gone - you can use this to pull new content
 
 Each of the custom events has a payload of three DOM references: 
@@ -44,7 +45,7 @@ Each of the custom events has a payload of three DOM references:
 * `container` - the deck container (as there may be several on the same page)
 * `card` - the HTML of the card that was removed (in case you need to read the contents)
 
-The `deckempty` event has no card in its payload.
+The `deckempty` event has no card in its payload, the `cardchosen` event has no origin.
 
 You react to users pressing the yay or nay buttons by listening for the the `nopecard` and `yepcard` custom events. This is how I created the nopes and yays counters in the last demo of the intro page.
 
