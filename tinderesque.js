@@ -1,33 +1,39 @@
 (function(){
+  var animating = false;
+
   function animatecard(ev) {
-    var t = ev.target;
-    if (t.className === 'but-nope') {
-      t.parentNode.classList.add('nope');
-      fireCustomEvent('nopecard',
-        {
-          origin: t,
-          container: t.parentNode,
-          card: t.parentNode.querySelector('.card')
-        }
-      );
-    }
-    if (t.className === 'but-yay') {
-      t.parentNode.classList.add('yes');
-      fireCustomEvent('yepcard',
-        {
-          origin: t,
-          container: t.parentNode,
-          card: t.parentNode.querySelector('.card')
-        }
-      );
-    }
-    if (t.classList.contains('current')) {
-      fireCustomEvent('cardchosen',
-        {
-          container: getContainer(t),
-          card: t
-        }
-      );
+    if (animating === false) {
+      var t = ev.target;
+      if (t.className === 'but-nope') {
+        t.parentNode.classList.add('nope');
+        animating = true;
+        fireCustomEvent('nopecard',
+          {
+            origin: t,
+            container: t.parentNode,
+            card: t.parentNode.querySelector('.card')
+          }
+        );
+      }
+      if (t.className === 'but-yay') {
+        t.parentNode.classList.add('yes');
+        animating = true;
+        fireCustomEvent('yepcard',
+          {
+            origin: t,
+            container: t.parentNode,
+            card: t.parentNode.querySelector('.card')
+          }
+        );
+      }
+      if (t.classList.contains('current')) {
+        fireCustomEvent('cardchosen',
+          {
+            container: getContainer(t),
+            card: t
+          }
+        );
+      }
     }
   }
 
@@ -47,6 +53,7 @@
   }
 
   function animationdone(ev) {
+    animating = false;
     var origin = getContainer(ev.target);
     if (ev.animationName === 'yay') {
       origin.classList.remove('yes');
