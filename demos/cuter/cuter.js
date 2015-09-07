@@ -25,8 +25,10 @@
 
   window.addEventListener('load', function(ev) {
     var t = document.querySelector('template');
-    t.parentNode.innerHTML += t.innerHTML;
-    t.remove();
+    var list = t.parentNode;
+    var contents = t.innerHTML;
+    list.removeChild(t);
+    list.innerHTML += contents;
     all = document.body.querySelectorAll('.card').length + 1;
     updatecounter();
   });
