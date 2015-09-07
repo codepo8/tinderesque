@@ -26,9 +26,9 @@
   window.addEventListener('load', function(ev) {
     var t = document.querySelector('template');
     t.parentNode.innerHTML += t.innerHTML;
+    t.remove();
     all = document.body.querySelectorAll('.card').length + 1;
     updatecounter();
-    t.remove();
   });
 
 })();
