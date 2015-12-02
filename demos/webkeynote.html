@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tinderesque - a simple Tinder-like card animation and voting system</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="../tinderesque.css">
+  <style type="text/css">
+    body {
+      font-family: "Segoe UI", helvetica, arial, sans-serif;
+      background: #333;
+      font-weight: lighter;
+      background: linear-gradient(#333,#666);
+      color: #ccc;
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    header, section, footer {
+      display: block;
+      padding: 0.5em 1em;
+    }
+    header, footer {
+      display: block;
+    }
+    a {color: lime;}
+    h1, h2 {
+      color: #f8f8f8;
+      font-size: 50px;
+      text-align: center;
+      margin: 0;
+      font-weight: lighter;
+    }
+    h2 {font-size: 20px;}
+    .floaty .cardcontainer {
+      float: left;
+    }
+    h2 {clear: both;}
+    footer, header, section {
+      display: block;
+    }
+    footer {
+      font-size: 10px;
+      text-align: right;
+      padding: 3em 0.5em 1em 0.5em;
+    }
+    .nobutton:hover .yes {
+      -webkit-animation: yay 0.7s ease-out;
+      animation: yay 0.7s ease-out;
+    }
+    .nobutton:hover .nope {
+      -webkit-animation: nope 0.7s ease-out;
+      animation: nope 0.7s ease-out;
+    }
+    .card {
+      background: bisque;
+      color: #000;
+      line-height: 50px;
+      padding: 20px;
+      text-align: left;
+      width: 360px;
+      font-size: 40px;
+      height: 460px;
+      display: block;
+      -webkit-transform-origin: 50% 99%;
+      transform-origin: 50% 99%;
+      position: relative;
+    }
+
+    .card a {
+      font-size: 20px;
+      color: #000;
+      text-decoration: none;
+    }
+    .card > a {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
+    .cardcontainer {
+      padding: 10px;
+      margin: 0 auto;
+      text-align: center;
+      width: 400px;
+    }
+    .cardlist {
+      background: DarkGray;
+    }
+    button {
+      background: #0c0;
+      border: none;
+      color: #fff;
+      border-radius: 50% 50%;
+      width: 100px;
+      height: 100px;
+      font-size: 50px;
+      line-height: 100px;
+      margin: 0 .5em;
+      display: inline-block;
+    }
+    .list ul.cardlist {
+      margin-bottom: 10px;
+    }
+    span {
+      font-size: 50px;
+      color: black
+    }
+    .card li {
+      list-style-type: none;
+      font-size: 20px;
+      line-height: 25px;
+      padding: 5px 20px;
+      position: relative;
+    }
+    .card li::before {
+      content: '🦄';
+      position: absolute;
+      left: -10px;
+    }
+    .card ul {
+      margin: 10px;
+      padding: 0;
+    }
+    .icon {
+      font-size: 180px;
+      margin: 130px 0 0 0;
+      display: block;
+      text-align: center;
+    }
+    pre {
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Web Standards and Interoperability</h1>
+  </header>
+  <section>
+    <div class="cardcontainer list">
+      <ul class="cardlist">
+        <li class="card current">Chris Heilmann @codepo8</li>
+        <li class="card">I love the web! <span class="icon">😍🕸</span></li>
+        <li class="card">HTML5 and web standards</li>
+        <li class="card">Internet Explorer <span class="icon">🎉💩</span></li>
+        <li class="card">Internet Explorer 11 <span class="icon">😐</span></li> <li class="card">Strict Standards Compliance <span class="icon">📚</span></li>
+        <li class="card">Innovation in browsers <span class="icon">💡</span></li>
+        <li class="card">Libraries patching issues <span class="icon">🤕</span></li>
+        <li class="card">Microsoft Edge
+          <ul>
+            <li>Evergreen browser</li>
+            <li>Same across all form factors</li>
+            <li>Standards compliant</li>
+            <li>Comparable with other browsers</li>
+          </ul>
+        </li>
+        <li class="card">User Agent Sniffing <span class="icon">💩</span></li>
+        <li class="card">Experimental features using prefixes <span class="icon">🔥</span></li>
+        <li class="card">Outdated libraries <span class="icon">🚧</span></li>
+        <li class="card">Broken implementations becoming "de facto standards"</em> <span class="icon">🙄</span></li>
+        <li class="card">Microsoft Edge (forgiving)
+          <ul>
+            <li>Evergreen browser</li>
+            <li>Same across all form factors</li>
+            <li>Standards compliant</li>
+            <li><strong>Compatible</strong> with other browsers on standards <strong>and "de-facto standards"</strong></li>
+          </ul>
+        </li>
+        <li class="card">Lots of forgotten standards are now usable <span class="icon">💪</span><a href="http://caniuse.com">caniuse.com</a></li>
+        <li class="card">JavaScript => ES6 <span class="icon">🤘</span><a href="http://www.ecma-international.org/ecma-262/6.0/">ecma-international.org/ecma-262/6.0</a></li>
+        <li class="card">Encouraging ES6 support <span class="icon">👍</span><a href="http://kangax.github.io/compat-table/es6/">kangax.github.io/compat-table/es6</a></li>
+        <li class="card">Transpilers for old environments <span class="icon">👻</span> <a href="http://babeljs.io">babeljs.io</a></li>
+        <li class="card"><pre>"use strict";
+
+(function (JavaScript) {
+  return ES6;
+});</pre></li>
+        <li class="card">Supersets for superpowers <span class="icon">🍄</span><a href="http://www.typescriptlang.org/">typescriptlang.org</a></li>
+        <li class="card">In-Browser developer tools <span class="icon">👀</span></li>
+        <li class="card">Kick-ass editors and debuggers <span class="icon">👞🐴</span><a href="http://code.visualstudio.com/">code.visualstudio.com</a></li>
+        <li class="card">Remote debugging services and tools <span class="icon">📱</span><a href="http://www.vorlonjs.com/">vorlonjs.com</a></li>
+        <li class="card">Open Communication channels
+          <ul>
+            <li><a href="http://status.modern.ie">status.modern.ie</a></li>
+            <li><a href="http://remote.modern.ie">remote.modern.ie</a></li>
+            <li><a href="http://uservoice.modern.ie">uservoice.modern.ie</a></li>
+            <li><a href="http://twitter.com/msedgedev">@msedgedev</a></li>
+          </ul>
+        </li>
+        <li class="card">Participation very welcome! <span class="icon">🎤</span></li>
+        <li class="card">Assume the future is bright!
+          <ul>
+            <li>Offline Web Solutions</li>
+            <li>Device Capability Access</li>
+            <li>Componentisation/Modularisation</li>
+            <li>Simplification due to convenience methods and more capable browsers</li>
+          </ul>
+        </li>
+        <li class="card">Stop thinking in browsers, and start thinking in opportunities <span class="icon">🏅</span></li>
+        <li class="card">Let's clean up this mess to make way for the future <span class="icon">🚿</span></li>
+        <li class="card">Quick scan of simple issues to fix <span class="icon">🔎</span><a href="http://dev.modern.ie/tools/staticscan/">dev.modern.ie/tools/staticscan</a></li>
+        <li class="card">THANKS! <span class="icon">🎉</span></li>
+      </ul>
+      <span class="nopes">0</span>
+      <button class="but-nope">😞</button>
+      <button class="but-yay">😀</button>
+      <span class="yays">0</span>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="https://github.com/codepo8/tinderesque">Get the code</a> and <a href="https://github.com/codepo8/tinderesque/blob/master/README.md">read the instructions</a> how to use it on GitHub.</p>
+    <p>Made with slight amusement (as love is too strong a word) by Chris Heilmann (<a href="http://twitter.com/codepo8">@codepo8</a>)</p>
+  </footer>
+
+<script src="../tinderesque.js"></script>
+<script>
+
+  document.body.addEventListener('nopecard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('yepcard', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('deckempty', function(ev) {
+    // console.log(ev.detail);
+  });
+  document.body.addEventListener('cardchosen', function(ev) {
+    // console.log(ev.detail);
+  });
+
+
+  document.body.addEventListener('nopecard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.nopes');
+    if (label) {
+      var nopes = +container.nopes || 0;
+      nopes++;
+      container.nopes = nopes;
+      label.innerHTML = container.nopes;
+    }
+  });
+
+  document.body.addEventListener('yepcard', function(ev) {
+    var container = ev.detail.container;
+    var label = container.querySelector('.yays');
+    if (label) {
+      var yeps = +container.yeps || 0;
+      yeps++;
+      container.yeps = yeps;
+      label.innerHTML = container.yeps;
+    }
+  });
+
+  document.body.addEventListener('deckempty', function(ev) {
+    document.location.href = 'webkeynote.html';
+  });
+
+</script>
+</body>
+</html>
