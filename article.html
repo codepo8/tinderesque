@@ -293,5 +293,97 @@ b.addEventListener('deckempty', function(ev) {
 
 <p>This should get you well on the way to build your own Tinder-like interface. If I find the time, I will record a screencast doing exactly that.</p>
 
+
+
+
+<style>
+#nav {width: 200px;padding:10px;background: #999;}
+#nav li {
+  background: #ccc;
+  border-top: 1px solid #eee;
+  color: #000;
+  padding: 2px 5px;
+  padding-left: 0.2em;
+  list-style: none;
+  margin-bottom: 1em;
+}
+#nav a {color: #000; text-decoration: none;}
+#nav li::before {
+  content: '•';
+  padding-right: .5em;
+}
+</style>
+
+<ul id="nav">
+  <li><a href="#">Bookstore Online</a></li>
+  <li><a href="#">Study Resources</a></li>
+  <li><a href="#">Service Information</a></li>
+  <li><a href="#">TV Broadcast</a></li>
+  <li><a href="#">Donations</a></li>
+</ul>
+
+
+<style>
+form {padding: 200px 2em;width: 400px;}
+ul {
+  display: none;
+  color: #c00;
+  margin: 0 0 0 .5em;
+  padding: 0;
+}
+li a {color: #fcc;}
+li {
+  list-style: none;
+  margin: 0;
+}
+
+label {width: 150px;display:inline-block;}
+.sendoff {
+  width: 300px;
+  text-align: right;
+}
+</style>
+
+  <ul class="error">
+    <li>There were some errors:
+      <ul>
+        <li><a href="#name">Name is required</a></li>
+        <li><a href="#birthday">Birthday needs to be in the format of DD/MM/YYYY</a></li>
+        <li><a href="#phone">Phone can't have any characters but 0-9</a></li>
+        <li><a href="#age">Age needs to be a number</a></li>
+      </ul>
+    </li>
+  </ul>
+
+
+<form action="/cgi-bin/formmail.pl">
+  <p><label for="name">Contact Name *</label>
+     <input type="text" required id="name" name="name"></p>
+  <p><label for="bday">Birthday</label>
+     <input type="date" id="bday" name="bday" 
+     placeholder="DD/MM/YYYY"></p>
+  <p><label for="lcolour">Label Colour</label>
+     <input type="color" id="lcolour" name="lcolour"></p>
+  <p><label for="phone">Phone</label>
+     <input type="tel" id="phone" name="phone"></p>
+  <p><label for="age">Age</label>
+     <input type="number" id="age" name="age"></p>
+  <p class="sendoff">
+    <input type="submit" value="add to contacts">
+  </p>   
+</form> 
+
+
+
+
+<!--[if IE lte 7]>
+<style type="text/css">
+  ul li a { 
+    height: 1px;
+  }
+</style>
+<![endif]-->
+
+
 </body>
 </html>

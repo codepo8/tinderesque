@@ -24,11 +24,19 @@
   });
 
   window.addEventListener('load', function(ev) {
+    // check if template is supported
+    // browsers without it wouldn't need to
+    // do the content shifting
     if ('content' in document.createElement('template')) {
+      // get the template
       var t = document.querySelector('template');
+      // get its parent element
       var list = t.parentNode;
+      // cache the template content
       var contents = t.innerHTML;
+      // kill the template
       list.removeChild(t);
+      // add the cached content to the parent
       list.innerHTML += contents;
     }
     all = document.body.querySelectorAll('.card').length + 1;
