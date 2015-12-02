@@ -130,6 +130,55 @@
     pre {
       font-size: 25px;
     }
+
+    @keyframes yay {
+      from {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: rotate(40deg) translateY(-80px);
+        opacity: 0;
+        background: mediumseagreen;
+      }
+    }
+
+    @-webkit-keyframes yay {
+      from {
+        -webkit-transform: rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        -webkit-transform: rotate(40deg) translateY(-80px);
+        opacity: 0;
+        background: mediumseagreen;
+      }
+    }
+
+    @keyframes nope {
+      from {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: rotate(-40deg) translateY(-80px);
+        opacity: 0;
+        background: firebrick;
+      }
+    }
+
+    @-webkit-keyframes nope {
+      from {
+        -webkit-transform: rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        -webkit-transform: rotate(-40deg) translateY(-80px);
+        opacity: 0;
+        background: firebrick;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -141,7 +190,7 @@
       <ul class="cardlist">
         <li class="card current">Chris Heilmann @codepo8</li>
         <li class="card">I love the web! <span class="icon">😍🕸</span></li>
-        <li class="card">HTML5 and web standards</li>
+        <li class="card">HTML5 and web standards <span class="icon">��</span></li>
         <li class="card">Internet Explorer <span class="icon">🎉💩</span></li>
         <li class="card">Internet Explorer 11 <span class="icon">😐</span></li> <li class="card">Strict Standards Compliance <span class="icon">📚</span></li>
         <li class="card">Innovation in browsers <span class="icon">💡</span></li>
@@ -254,6 +303,15 @@
 
   document.body.addEventListener('deckempty', function(ev) {
     document.location.href = 'webkeynote.html';
+  });
+
+  document.body.addEventListener('keyup', function(ev){
+    if (ev.which === 39) {
+      document.querySelector('.but-yay').click();
+    }
+    if (ev.which === 37) {
+      document.querySelector('.but-nope').click();
+    }
   });
 
 </script>

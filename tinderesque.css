@@ -75,6 +75,7 @@ button:focus {
   to {
     transform: rotate(40deg) translateY(-80px);
     opacity: 0;
+    background: green;
   }
 }
 
