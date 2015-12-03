@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Tinderesque - a simple Tinder-like card animation and voting system</title>
+  <title>Web Standards and Interoperability</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="../tinderesque.css">
   <style type="text/css">
@@ -105,14 +105,19 @@
       font-size: 50px;
       color: black
     }
-    .card li {
+    .ismac .card li {
       list-style-type: none;
+      padding: 5px 20px;
+    }
+    .card li {
+      list-style-type: square;
       font-size: 20px;
       line-height: 25px;
-      padding: 5px 20px;
+      padding: 5px 0;
+      margin-left: 10px;
       position: relative;
     }
-    .card li::before {
+    .ismac .card li::before {
       content: '🦄';
       position: absolute;
       left: -10px;
@@ -124,8 +129,11 @@
     .icon {
       font-size: 180px;
       margin: 130px 0 0 0;
-      display: block;
       text-align: center;
+      display: none;
+    }
+    .ismac .icon {
+      display: block;
     }
     pre {
       font-size: 25px;
@@ -264,6 +272,10 @@
 
 <script src="../tinderesque.js"></script>
 <script>
+  // colour emoji are better
+  if (navigator.userAgent.indexOf('Macintosh')) {
+    document.body.classList.add('ismac');
+  }
 
   document.body.addEventListener('nopecard', function(ev) {
     // console.log(ev.detail);
@@ -313,7 +325,6 @@
       document.querySelector('.but-nope').click();
     }
   });
-
 </script>
 </body>
 </html>
