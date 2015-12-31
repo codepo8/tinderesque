@@ -21,14 +21,23 @@
   margin: 0;
   padding: 0;
 }
-.list .card {
+.tinderesque .list .card {
   display: none;
 }
-.list .current {
+.tinderesque .list .current {
   display: block;
 }
 
 /* Button designs */
+
+.but-nope, .but-yay, .nopes, .yays {
+  display: none;
+}
+
+.tinderesque .but-nope, .tinderesque .but-yay,
+.tinderesque .nopes, .tinderesque .yays {
+  display: inline-block;
+}
 
 button {
   background: #0c0;
@@ -53,11 +62,11 @@ button:focus {
   background: #f00;
 }
 
-.cardcontainer.yes .card {
+.tinderesque .cardcontainer.yes .card {
   -webkit-animation: yay 0.7s ease-out;
   animation: yay 0.7s ease-out;
 }
-.cardcontainer.nope .card {
+.tinderesque .cardcontainer.nope .card {
   -webkit-animation: nope 0.7s ease-out;
   animation: nope 0.7s ease-out;
 }

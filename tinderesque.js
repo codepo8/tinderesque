@@ -80,4 +80,7 @@
   document.body.addEventListener('animationend', animationdone);
   document.body.addEventListener('webkitAnimationEnd', animationdone);
   document.body.addEventListener('click', animatecard);
+  window.addEventListener('DOMContentLoaded', function(){
+    document.body.classList.add('tinderesque');
+  });
 })();
