@@ -45,5 +45,16 @@ hammertime.on('swipeleft', function(ev) {
 hammertime.on('swiperight', function(ev) {
   document.querySelector('.but-yay').click();
 });
+var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
+thumbstapone.on('tap', function(ev) {
+  console.log(ev);
+});
+var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
+thumbstaptwo.on('tap', function(ev) {
+  console.log(ev);
+});
+
+
+
 
 })();
