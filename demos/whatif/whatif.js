@@ -1,60 +1,88 @@
 (function(){
 
   var all = 0;
-  var results = document.querySelector('#results');
-
 
   document.body.addEventListener('yepcard', function(ev) {
-    results.innerHTML += '<li>'+ev.detail.card.innerHTML+'</li>';
-    updatecounter();
   });
 
   document.body.addEventListener('nopecard', function(ev) {
   });
 
   document.body.addEventListener('deckempty', function(ev) {
-    results.classList.add('live');
-    ev.detail.container.style.display = 'none';
+    seedlist();
   });
 
   window.addEventListener('load', function(ev) {
-    // check if template is supported
-    // browsers without it wouldn't need to
-    // do the content shifting
-/*
-    if ('content' in document.createElement('template')) {
-      // get the template
-      var t = document.querySelector('template');
-      // get its parent element
-      var list = t.parentNode;
-      // cache the template content
-      var contents = t.innerHTML;
-      // kill the template
-      list.removeChild(t);
-      // add the cached content to the parent
-      list.innerHTML += contents;
-    }
-*/
-    all = document.body.querySelectorAll('.card').length + 1;
+    seedlist();
   });
 
-var hammertime = new Hammer(document.querySelector('.cardcontainer'));
-hammertime.on('swipeleft', function(ev) {
-  document.querySelector('.but-nope').click();
-});
-hammertime.on('swiperight', function(ev) {
-  document.querySelector('.but-yay').click();
-});
-var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
-thumbstapone.on('tap', function(ev) {
-  console.log(ev);
-});
-var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
-thumbstaptwo.on('tap', function(ev) {
-  console.log(ev);
-});
+  var c = document.querySelector('canvas');
+  var cx = c.getContext('2d');
+  c.width = 250;
+  c.height = 300;
+  cx.globalCompositeOperation = 'overlay';
+  c.imgs = 2;
+  var currentthumbone = null;
+  var currentthumbtwo = null;
 
+  function seedlist() {
+    var tinderlist = document.querySelector('.cardlist');
+    var firstthumbs = document.querySelectorAll('.thumbs-one img');
+    var secondthumbs = document.querySelectorAll('.thumbs-two img');
+    var all = firstthumbs.length;
+    var out = '';
+    for (var i = 0; i < all; i++) {
+      out += '<li class="';
+      out += (i > 0) ? 'card' : 'card current';
+      out += '"><img src="' + miximages(firstthumbs[i], secondthumbs[i]) + '" alt=""></li>';
+    }
+    tinderlist.innerHTML = out;
+  }
 
+  function miximages(img1, img2) {
+    cx.clearRect(0, 0, 250, 300);
+    cx.drawImage(img1, 0, 0, 250, 300);
+    cx.drawImage(img2, 0, 0, 250, 300);
+    return c.toDataURL("image/jpeg", 0.5);
+  }
 
+  function addtocanvas(img) {
+    if (img.tagName === 'IMG') {
+      if (c.imgs === 2) {
+        cx.clearRect(0, 0, 250, 300);
+        c.imgs = 0;
+      }
+      cx.drawImage(img, 0, 0, 250, 300);
+      c.imgs++;
+    }
+  }
+
+  var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
+  tinderswipe.on('swipeleft', function(ev) {
+    document.querySelector('.but-nope').click();
+  });
+  tinderswipe.on('swiperight', function(ev) {
+    document.querySelector('.but-yay').click();
+  });
+
+  var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
+  thumbstapone.on('tap', function(ev) {
+    addtocanvas(ev.target);
+    if (currentthumbone) {
+      currentthumbone.classList.remove('current');
+    }
+    currentthumbone = ev.target;
+    ev.target.classList.add('current');
+  });
+
+  var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
+  thumbstaptwo.on('tap', function(ev) {
+    addtocanvas(ev.target);
+    if (currentthumbtwo) {
+      currentthumbtwo.classList.remove('current');
+    }
+    currentthumbtwo = ev.target;
+    ev.target.classList.add('current');
+  });
 
 })();

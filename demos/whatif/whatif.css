@@ -14,8 +14,16 @@ header, footer {
   background: #000;
   background: linear-gradient(#111,#000);
 }
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
 @media (max-width: 1000px) {
   .thumbs {
+    display: none;
+  }
+  canvas {
     display: none;
   }
 }
@@ -24,7 +32,6 @@ header, footer {
     display: none;
   }
 }
-
 a {color: lime;}
 h1 {
   color: #f8f8f8;
@@ -128,16 +135,20 @@ img {display: block;}
   position: absolute;
   top: 0;
   left: 0;
-  width: 320px;
+  width: 330px;
 }
 .thumbs-two {
   position: absolute;
   top: 0;
   right: 0;
-  width: 320px;
+  width: 330px;
 }
 .thumbs-one img, .thumbs-two img {
   width: 150px;
   float: left;
   margin: 5px;
+  border: 2px solid transparent;
+}
+.thumbs-one img.current, .thumbs-two img.current {
+  border: 2px solid white;
 }
