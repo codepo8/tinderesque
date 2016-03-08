@@ -20,7 +20,6 @@
   var cx = c.getContext('2d');
   c.width = 250;
   c.height = 300;
-  cx.globalCompositeOperation = 'overlay';
   c.imgs = 2;
   var currentthumbone = null;
   var currentthumbtwo = null;
@@ -41,8 +40,9 @@
 
   function miximages(img1, img2) {
     cx.clearRect(0, 0, 250, 300);
+    cx.globalCompositeOperation = 'overlay';
     cx.drawImage(img1, 0, 0, 250, 300);
-    cx.drawImage(img2, 0, 0, 250, 300);
+    cx.drawImage(img2, 0, 150, 250, 300);
     return c.toDataURL("image/jpeg", 0.5);
   }
 
@@ -52,7 +52,8 @@
         cx.clearRect(0, 0, 250, 300);
         c.imgs = 0;
       }
-      cx.drawImage(img, 0, 0, 250, 300);
+      var y = c.imgs === 1 ? 150 : 0;
+      cx.drawImage(img, 0, y, 250, 300);
       c.imgs++;
     }
   }
