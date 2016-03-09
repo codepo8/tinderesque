@@ -40,9 +40,9 @@
 
   function miximages(img1, img2) {
     cx.clearRect(0, 0, 250, 300);
-    cx.globalCompositeOperation = 'overlay';
     cx.drawImage(img1, 0, 0, 250, 300);
-    cx.drawImage(img2, 0, 0, 250, 300);
+    cx.drawImage(img2, 0, 150, 250, 300);
+    watermark();
     return c.toDataURL("image/jpeg", 0.5);
   }
 
@@ -51,9 +51,20 @@
       if (clear) {
         cx.clearRect(0, 0, 250, 300);
       }
-      var y = 0;
-      cx.drawImage(img, 0, 0, 250, 300);
+      var y = clear ? 0 : 150;
+      cx.drawImage(img, 0, y, 250, 300);
+      if (!clear) {
+        watermark();
+      }
     }
+  }
+  function watermark() {
+    cx.fillStyle = 'rgba(0,0,0,0.6)';
+    cx.fillRect(0, 270, 250, 320);
+    cx.fillStyle = '#fff';
+    cx.font = '14pt Calibri';
+    cx.fillText("what-if.net", 5, 290);    //cx.strokeText("#whatif", 180, 290);
+    cx.fillText("#whatif", 180, 290);
   }
 
   var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
