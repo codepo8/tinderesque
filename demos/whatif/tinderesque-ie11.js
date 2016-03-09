@@ -46,7 +46,7 @@ var tinderesque = {};
       });
       console.log(newevent);
       document.body.dispatchEvent(newevent);
-    } catch {
+    } catch(err) {
       alert('moo');
       //var e = document.createEvent('CustomEvent')
 
