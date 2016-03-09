@@ -50,6 +50,7 @@ footer {
 }
 img {display: block;}
 .but-nope::after {
+
   content: 'nope';
   position: absolute;
   top: -35px;
@@ -81,7 +82,7 @@ img {display: block;}
   transition: 0.4s;
   opacity: 0;
 }
-.yay .but-yay::after, .but-yay:hover::after {
+.yes .but-yay::after, .but-yay:hover::after {
   opacity: 1;
   top: 35px;
 }

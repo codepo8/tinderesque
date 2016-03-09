@@ -6,6 +6,9 @@
   tinderesque.yepcard = function(detail) {
     console.log(detail);
   }
+  tinderesque.deckempty = function(detail) {
+    seedlist();
+  }
 
   window.addEventListener('yepcard', function(ev) {
     console.log(ev);
