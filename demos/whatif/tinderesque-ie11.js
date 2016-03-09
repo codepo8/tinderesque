@@ -44,7 +44,7 @@ var tinderesque = {};
       var newevent = new CustomEvent(name, {
         detail: payload
       });
-      document.body.dispatchEvent(newevent);
+      window.dispatchEvent(newevent);
     } catch(err) {
       var e = document.createEvent('CustomEvent')
       e.initCustomEvent(name, 0, 0, payload);

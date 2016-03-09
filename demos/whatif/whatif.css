@@ -18,7 +18,10 @@ canvas {
   display: block;
   margin: 0 auto;
 }
-
+.cardlist {
+  background: blue;
+  width: 100%;
+}
 @media (max-width: 1000px) {
   .thumbs {
     display: none;

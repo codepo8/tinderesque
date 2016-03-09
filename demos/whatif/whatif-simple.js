@@ -3,14 +3,14 @@
   var all = 0;
   var cardcontainer = document.querySelector('.cardcontainer');
 
-  document.body.addEventListener('yepcard', function(ev) {
+  window.addEventListener('yepcard', function(ev) {
     console.log(ev);
   });
 
-  document.body.addEventListener('nopecard', function(ev) {
+  window.addEventListener('nopecard', function(ev) {
   });
 
-  document.body.addEventListener('deckempty', function(ev) {
+  window.addEventListener('deckempty', function(ev) {
     seedlist();
   });
 
@@ -69,24 +69,13 @@
     cx.fillText("#whatif", 180, 290);
   }
 
-  var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
-  tinderswipe.on('tap', function(ev) {
-    document.querySelector('.but-nope').click();
-  });
-  tinderswipe.on('swiperight', function(ev) {
-    document.querySelector('.but-yay').click();
-  });
-
-
-
-  var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
+  var tinderswipe = new Hammer(document.querySelector('.cardlist'));
   tinderswipe.on('swipeleft', function(ev) {
+    console.log(ev);
     document.querySelector('.but-nope').click();
   });
-  tinderswipe.on('tap', function(ev) {
-    // console.log(ev);
-  });
   tinderswipe.on('swiperight', function(ev) {
+    console.log(ev);
     document.querySelector('.but-yay').click();
   });
 

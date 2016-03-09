@@ -35,6 +35,7 @@ footer {
 .card {
   color: #000;
   width: 250px;
+  margin: 0 auto;
   height: 300px;
 }
 .cardcontainer {
@@ -80,7 +81,7 @@ img {display: block;}
   transition: 0.4s;
   opacity: 0;
 }
-.yes .but-yay::after, .but-yay:hover::after {
+.yay .but-yay::after, .but-yay:hover::after {
   opacity: 1;
   top: 35px;
 }
@@ -122,4 +123,14 @@ canvas {
 }
 .thumbs {
   display: none;
+}
+.cardcontainer {
+  width: auto;
+}
+.list ul.cardlist {
+  width: auto;
+}
+.list ul.cardlist img {
+  display: block;
+  margin: 0 auto;
 }
