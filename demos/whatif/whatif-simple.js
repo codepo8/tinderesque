@@ -71,11 +71,9 @@
 
   var tinderswipe = new Hammer(document.querySelector('.cardlist'));
   tinderswipe.on('swipeleft', function(ev) {
-    console.log(ev);
     document.querySelector('.but-nope').click();
   });
   tinderswipe.on('swiperight', function(ev) {
-    console.log(ev);
     document.querySelector('.but-yay').click();
   });
 
