@@ -1,3 +1,5 @@
+var tinderesque = {};
+
 (function(){
   var animating = false;
 
@@ -41,6 +43,7 @@
     var newevent = new CustomEvent(name, {
       detail: payload
     });
+    console.log(newevent);
     document.body.dispatchEvent(newevent);
   }
 

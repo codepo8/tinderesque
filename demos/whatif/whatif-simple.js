@@ -83,7 +83,7 @@
     document.querySelector('.but-nope').click();
   });
   tinderswipe.on('tap', function(ev) {
-    console.log(ev);
+    // console.log(ev);
   });
   tinderswipe.on('swiperight', function(ev) {
     document.querySelector('.but-yay').click();
