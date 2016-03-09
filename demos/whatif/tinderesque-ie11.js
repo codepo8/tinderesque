@@ -1,4 +1,4 @@
-
+var tinderesque = {};
 
 (function(){
 
@@ -55,8 +55,9 @@
       });
       window.dispatchEvent(newevent);
     } catch(err) {
-      var e = document.createEvent('CustomEvent')
-      e.initCustomEvent(name, 0, 0, payload);
+      if (tinderesque[name]) {
+        tinderesque[name](payload);
+      }
     }
   }
 

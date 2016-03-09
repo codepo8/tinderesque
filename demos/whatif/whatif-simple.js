@@ -3,6 +3,10 @@
   var all = 0;
   var cardcontainer = document.querySelector('.cardcontainer');
 
+  tinderesque.yepcard = function(detail) {
+    console.log(detail);
+  }
+
   window.addEventListener('yepcard', function(ev) {
     console.log(ev);
   });
