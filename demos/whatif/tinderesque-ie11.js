@@ -44,13 +44,10 @@ var tinderesque = {};
       var newevent = new CustomEvent(name, {
         detail: payload
       });
-      console.log(newevent);
       document.body.dispatchEvent(newevent);
     } catch(err) {
-      alert('moo');
-      //var e = document.createEvent('CustomEvent')
-
-      //event.initCustomEvent(type, canBubble, cancelable, detail);
+      var e = document.createEvent('CustomEvent')
+      event.initCustomEvent(name, 0, 0, payload);
     }
   }
 

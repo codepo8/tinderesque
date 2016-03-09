@@ -4,6 +4,7 @@
   var cardcontainer = document.querySelector('.cardcontainer');
 
   document.body.addEventListener('yepcard', function(ev) {
+    console.log(ev);
   });
 
   document.body.addEventListener('nopecard', function(ev) {
@@ -44,7 +45,7 @@
     cx.drawImage(img1, 0, 0, 250, 300);
     cx.drawImage(img2, 0, 150, 250, 300);
     watermark();
-    return c.toDataURL("image/jpeg", 0.5);
+    return c.toDataURL('image/jpeg', 0.5);
   }
 
   function addtocanvas(img, clear) {
