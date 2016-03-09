@@ -1,11 +1,16 @@
 (function(){
 
   var all = 0;
+  var cardcontainer = document.querySelector('.cardcontainer');
 
   document.body.addEventListener('yepcard', function(ev) {
+    cardcontainer.classList.remove('swipeleft');
+    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('nopecard', function(ev) {
+    cardcontainer.classList.remove('swipeleft');
+    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('deckempty', function(ev) {
