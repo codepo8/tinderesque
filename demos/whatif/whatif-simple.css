@@ -62,11 +62,7 @@ img {display: block;}
   transition: 0.4s;
   opacity: 0;
 }
-.but-nope:hover::after {
-  opacity: 1;
-  top: 35px;
-}
-.swipeleft .but-nope::after {
+.nope .but-nope::after, .but-nope:hover::after {
   opacity: 1;
   top: 35px;
 }
@@ -84,7 +80,7 @@ img {display: block;}
   transition: 0.4s;
   opacity: 0;
 }
-.swiperight .but-yay::after, .but-yay:hover::after {
+.yay .but-yay::after, .but-yay:hover::after {
   opacity: 1;
   top: 35px;
 }
