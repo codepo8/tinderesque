@@ -40,11 +40,18 @@ var tinderesque = {};
   }
 
   function fireCustomEvent(name, payload) {
-    var newevent = new CustomEvent(name, {
-      detail: payload
-    });
-    console.log(newevent);
-    document.body.dispatchEvent(newevent);
+    try {
+      var newevent = new CustomEvent(name, {
+        detail: payload
+      });
+      console.log(newevent);
+      document.body.dispatchEvent(newevent);
+    } catch {
+      alert('moo');
+      //var e = document.createEvent('CustomEvent')
+
+      //event.initCustomEvent(type, canBubble, cancelable, detail);
+    }
   }
 
   function getContainer(elm) {
