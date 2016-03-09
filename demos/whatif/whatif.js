@@ -1,16 +1,11 @@
 (function(){
 
   var all = 0;
-  var cardcontainer = document.querySelector('.cardcontainer');
 
   document.body.addEventListener('yepcard', function(ev) {
-    cardcontainer.classList.remove('swipeleft');
-    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('nopecard', function(ev) {
-    cardcontainer.classList.remove('swipeleft');
-    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('deckempty', function(ev) {
@@ -65,10 +60,10 @@
   }
   function watermark() {
     cx.fillStyle = 'rgba(0,0,0,0.6)';
-    cx.fillRect(0, 270, 250, 320);
+    cx.fillRect(0, 270, 250, 300);
     cx.fillStyle = '#fff';
     cx.font = '14pt Calibri';
-    cx.fillText("what-if.net", 5, 290);
+    cx.fillText("what-if.net", 5, 290);    //cx.strokeText("#whatif", 180, 290);
     cx.fillText("#whatif", 180, 290);
   }
 

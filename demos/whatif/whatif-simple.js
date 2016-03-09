@@ -1,11 +1,16 @@
 (function(){
 
   var all = 0;
+  var cardcontainer = document.querySelector('.cardcontainer');
 
   document.body.addEventListener('yepcard', function(ev) {
+    cardcontainer.classList.remove('swipeleft');
+    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('nopecard', function(ev) {
+    cardcontainer.classList.remove('swipeleft');
+    cardcontainer.classList.remove('swiperight');
   });
 
   document.body.addEventListener('deckempty', function(ev) {
@@ -69,12 +74,20 @@
 
   var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
   tinderswipe.on('swipeleft', function(ev) {
-    document.querySelector('.cardcontainer').classList.add('swipeleft');
     document.querySelector('.but-nope').click();
   });
   tinderswipe.on('swiperight', function(ev) {
-    document.querySelector('.cardcontainer').classList.add('swiperight');
     document.querySelector('.but-yay').click();
+  });
+
+  var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
+  thumbstapone.on('tap', function(ev) {
+    addtocanvas(ev.target, 1);
+    if (currentthumbone) {
+      currentthumbone.classList.remove('current');
+    }
+    currentthumbone = ev.target;
+    ev.target.classList.add('current');
   });
 
   if (document.querySelector('.build')) {
@@ -84,5 +97,14 @@
     });
   }
 
+  var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
+  thumbstaptwo.on('tap', function(ev) {
+    addtocanvas(ev.target);
+    if (currentthumbtwo) {
+      currentthumbtwo.classList.remove('current');
+    }
+    currentthumbtwo = ev.target;
+    ev.target.classList.add('current');
+  });
 
 })();
