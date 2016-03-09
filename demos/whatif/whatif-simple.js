@@ -69,21 +69,24 @@
   }
 
   var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
-  tinderswipe.on('swipeleft', function(ev) {
+  tinderswipe.on('tap', function(ev) {
     document.querySelector('.but-nope').click();
   });
   tinderswipe.on('swiperight', function(ev) {
     document.querySelector('.but-yay').click();
   });
 
-  var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
-  thumbstapone.on('tap', function(ev) {
-    addtocanvas(ev.target, 1);
-    if (currentthumbone) {
-      currentthumbone.classList.remove('current');
-    }
-    currentthumbone = ev.target;
-    ev.target.classList.add('current');
+
+
+  var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
+  tinderswipe.on('swipeleft', function(ev) {
+    document.querySelector('.but-nope').click();
+  });
+  tinderswipe.on('tap', function(ev) {
+    console.log(ev);
+  });
+  tinderswipe.on('swiperight', function(ev) {
+    document.querySelector('.but-yay').click();
   });
 
   if (document.querySelector('.build')) {
@@ -92,15 +95,5 @@
       document.body.classList.toggle('tweak');
     });
   }
-
-  var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
-  thumbstaptwo.on('tap', function(ev) {
-    addtocanvas(ev.target);
-    if (currentthumbtwo) {
-      currentthumbtwo.classList.remove('current');
-    }
-    currentthumbtwo = ev.target;
-    ev.target.classList.add('current');
-  });
 
 })();
