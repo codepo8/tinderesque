@@ -47,7 +47,7 @@ var tinderesque = {};
       document.body.dispatchEvent(newevent);
     } catch(err) {
       var e = document.createEvent('CustomEvent')
-      event.initCustomEvent(name, 0, 0, payload);
+      e.initCustomEvent(name, 0, 0, payload);
     }
   }
 
