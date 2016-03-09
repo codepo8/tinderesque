@@ -20,7 +20,7 @@
   var cx = c.getContext('2d');
   c.width = 250;
   c.height = 300;
-  c.imgs = 2;
+  c.hasimg = false;
   var currentthumbone = null;
   var currentthumbtwo = null;
 
@@ -42,28 +42,17 @@
     cx.clearRect(0, 0, 250, 300);
     cx.globalCompositeOperation = 'overlay';
     cx.drawImage(img1, 0, 0, 250, 300);
-    var y = 0;
-    // I am researching the bug…
-    if (navigator.userAgent.indexOf('Edge') !== -1) {
-      var y = 150;
-    }
-    cx.drawImage(img2, 0, y, 250, 300);
+    cx.drawImage(img2, 0, 0, 250, 300);
     return c.toDataURL("image/jpeg", 0.5);
   }
 
-  function addtocanvas(img) {
+  function addtocanvas(img, clear) {
     if (img.tagName === 'IMG') {
-      if (c.imgs === 2) {
+      if (clear) {
         cx.clearRect(0, 0, 250, 300);
-        c.imgs = 0;
       }
       var y = 0;
-      // I am researching the bug…
-      if (navigator.userAgent.indexOf('Edge') !== -1) {
-        var y = c.imgs === 1 ? 150 : 0;
-      }
-      cx.drawImage(img, 0, y, 250, 300);
-      c.imgs++;
+      cx.drawImage(img, 0, 0, 250, 300);
     }
   }
 
@@ -77,13 +66,20 @@
 
   var thumbstapone = new Hammer(document.querySelector('.thumbs-one'));
   thumbstapone.on('tap', function(ev) {
-    addtocanvas(ev.target);
+    addtocanvas(ev.target, 1);
     if (currentthumbone) {
       currentthumbone.classList.remove('current');
     }
     currentthumbone = ev.target;
     ev.target.classList.add('current');
   });
+
+  if (document.querySelector('.build')) {
+    var buildtap = new Hammer(document.querySelector('.build'));
+    buildtap.on('tap', function(ev) {
+      document.body.classList.toggle('tweak');
+    });
+  }
 
   var thumbstaptwo = new Hammer(document.querySelector('.thumbs-two'));
   thumbstaptwo.on('tap', function(ev) {
