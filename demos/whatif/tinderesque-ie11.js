@@ -1,6 +1,15 @@
 var tinderesque = {};
 
 (function(){
+
+  if (!('remove' in Element.prototype)) {
+      Element.prototype.remove = function() {
+          if (this.parentNode) {
+              this.parentNode.removeChild(this);
+          }
+      };
+  }
+
   var animating = false;
 
   function animatecard(ev) {
