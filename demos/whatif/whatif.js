@@ -63,7 +63,7 @@
     cx.fillRect(0, 270, 250, 320);
     cx.fillStyle = '#fff';
     cx.font = '14pt Calibri';
-    cx.fillText("what-if.net", 5, 290);    //cx.strokeText("#whatif", 180, 290);
+    cx.fillText("what-if.net", 5, 290);
     cx.fillText("#whatif", 180, 290);
   }
 
