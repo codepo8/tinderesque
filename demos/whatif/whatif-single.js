@@ -89,11 +89,16 @@
       ev.target.style.display = 'none';
     }
   });
+  document.querySelector('#getcamera form').
+    addEventListener('submit',function(ev) {
+      ev.preventDefault();
+      // TODO: image upload
+  });
   document.querySelector('button.done').
     addEventListener('click',function(ev) {
       document.querySelector('#simplecamshot button').click();
       document.querySelector('#getcamera').style.display = 'none';
-      window.open(document.querySelector('#simplecamshot img').src);
+      // TODO: image upload
   });
   document.querySelector('#simplecamshot').
     addEventListener('imagetaken',function(ev) {

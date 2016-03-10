@@ -24,10 +24,15 @@ body {
   right: 5px;
   top: 2px;
 }
+#getcamera form {
+  position: absolute;
+  left: 5px;
+  top: 2px;
+}
 #getcamera img, #getcamera button.video {
   display: block;
   position: absolute;
-  top: 1.9em;
+  top: 3em;
   left: 0;
 }
 #getcamera button.video {
