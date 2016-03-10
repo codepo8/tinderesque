@@ -4,23 +4,45 @@
   <meta charset="utf-8">
   <title>What if demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="whatif-single.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="whatif-bootstrap.css">
 
 </head>
-<body class="start">
+<body>
+  <div class="brand">&nbsp;</div>
 
-  <header>
-    <form action="">
-      <input placeholder="What if…" type="search" id="request">
-      <input type="submit" value="go!">
-    </form>
+    <div class="container">
+
+      <div class="starter-template">
+      <form>
+      <div class="input-group">
+        <input type="text" class="form-control" id="request" placeholder="What if...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+      </form>
+
     <ul id="demos">
       <li><a href="">What if Donald Trump was Superman?</a></li>
       <li><a href="">What if I wore a Banana Suit?</a></li>
       <li><a href="">What if Weird Al Yankovic were Wolverine?</a></li>
       <li><a href="">What if Justin Bieber were 80 years old?</a></li>
     </ul>
-  </header>
+
+
+
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+
 
   <section id="showimage">
     <p class="swipeinstructions">
@@ -47,6 +69,7 @@
 
   </footer>
 
+
 <script src="hammer.min.js"></script>
 <div id="simplecam"></div>
 <script src="simplecamshot.js"></script>
@@ -56,6 +79,11 @@
 </script>
 <script src="tinderesque-ie11.js"></script>
 <script src="whatif-single.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </body>
 </html>

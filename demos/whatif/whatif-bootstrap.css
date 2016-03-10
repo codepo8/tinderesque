@@ -1,65 +1,37 @@
-html {
-  height: 100%;
-}
-
 body {
-  font-family: "Segoe UI", helvetica, arial, sans-serif;
-  color: #333;
-  background: #00A4EF;
-  padding-top: 45px;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-}
-
-.container {
   background: #00A4EF;
 }
 .brand {
   background: url(microsoft-rev-01.png) 5px 2px no-repeat #000;
   background-size: auto 30px;
   height: 36px;
-}
-header, section, footer {
-  display: block;
-  }
-header {
-  position: relative;
-  z-index: 3;
-  margin: 0em auto;
-  width: 60%;
-  transition: 1s;
-}
-.sent header {
-  width:100%;
-  margin: 0 auto;
-  transition: 1s;
-}
-.sent header ul {
-  display: none;
-}
-header ul {
-  float: right;
-  padding-right: 150px;
-}
-header a {
-  color: #000;
-}
-header li {
-  line-height: 1.3em;
-  padding-bottom: .5em;
+  margin-bottom: 10px;
 }
 #getcamera {
   display: none;
 }
-
 #showimage {
+  margin-top: 10px;
   opacity: 0;
   transition: 1s;
-  min-height: 80vh;
+  min-height: 75vh;
+}
+#demos {
+  margin: 1em 0;
+  padding: 0 0 0 12px;
+  list-style: none;
+}
+#demos li {
+  padding: 0 0 0.5em 0;
+}
+#demos a {
+  color: #fff;
 }
 .sent #showimage {
   opacity: 1;
+}
+.sent #demos {
+  display: none;
 }
 .swipeinstructions {
   z-index: 1;
@@ -106,12 +78,7 @@ canvas {
   background: linear-gradient(to bottom, #fff,transparent);
 }
 
-footer {
-  clear: both;
-}
-
 /* Button designs */
-
 .but-nope, .but-yay, .nopes, .yays {
   display: none;
 }
@@ -120,7 +87,6 @@ footer {
 .tinderesque .nopes, .tinderesque .yays {
   display: inline-block;
 }
-
 .cardcontainer button {
   background: #0c0;
   border: none;
@@ -162,28 +128,6 @@ footer {
   -webkit-animation: nope 0.7s ease-out;
   animation: nope 0.7s ease-out;
 }
-
-
-
-
-a {color: lime;}
-h1 {
-  color: #f8f8f8;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: center;
-}
-footer {
-  background: transparent;
-  clear: both;
-  font-size: 10px;
-  text-align: center;
-  padding: 3em 0.5em 1em 0.5em;
-}
-.card {
-  color: #000;
-  margin: 0 auto;
-}
 .cardcontainer {
   position: relative;
   float: left;
@@ -192,8 +136,6 @@ footer {
   display: block;
   height: 75vh;
 }
-
-
 .but-nope::after {
   content: 'meh';
   position: absolute;
@@ -232,17 +174,6 @@ footer {
   opacity: 1;
   top: -200%;
 }
-
-input[type=search] {
-  width: calc(100% - 100px);
-  font-size: 2vw;
-}
-input[type=submit] {
-  font-size: 2vw;
-  width: 50px;
-  background: transparent;
-  border: none;
-}
 button.video {
   background: transparent;
   border: none;
@@ -251,7 +182,6 @@ button.video {
   margin: 0 auto;
   display: block;
 }
-
 @keyframes whoop {
   0 {
     top: -100px;

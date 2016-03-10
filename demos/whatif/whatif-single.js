@@ -25,7 +25,7 @@
     document.body.classList.add('sent');
   });
 
-  document.querySelector('header ul').addEventListener('click', function(ev) {
+  document.querySelector('#demos').addEventListener('click', function(ev) {
     ev.preventDefault();
     if (ev.target.tagName === 'A') {
       document.querySelector('#request').value = ev.target.innerHTML;
