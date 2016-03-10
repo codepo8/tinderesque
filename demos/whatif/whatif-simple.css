@@ -176,11 +176,8 @@ form {
   line-height: 80px;
   font-size: 30px;
 }
-label {
-  width: 100px;
-}
 input[type=search] {
-  width: calc(100% - 300px - 50px);
+  width: calc(100% - 100px);
   font-size: 30px;
 }
 input[type=submit] {
