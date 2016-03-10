@@ -12,13 +12,16 @@ body {
   position: relative;
   text-align: left;
 }
+#getcamera label {
+  padding-left: 1em;
+}
 #getcamera .cardcontainer {
   min-width: 640px;
   min-height: 440px;
 }
 #simplecamshot button {
   position: absolute;
-  left: 5px;
+  right: 5px;
   top: 2px;
 }
 #getcamera img, #getcamera button.video {
@@ -104,7 +107,6 @@ canvas {
   float: left;
   transform: translate(-50%,0);
   margin-left: 50%;
-  text-align: center;
   background: white;
   background: linear-gradient(to bottom, #fff,transparent);
 }

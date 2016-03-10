@@ -39,7 +39,7 @@ var simplecamshot = function() {
 
     /* If the browser isn't capable, leave */
     if (!navigator.mediaDevices && !navigator.getMedia) {
-      button.remove();
+      button.parentNode.removeChild(button);
       return;
     }
 
