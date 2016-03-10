@@ -129,7 +129,6 @@ footer {
   position: absolute;
   bottom: 50%;
   right: -4vw;
-  text-shadow: 0 2px 4px #000;
 }
 .cardcontainer button:focus {
   outline: 0;
