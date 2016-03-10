@@ -1,8 +1,8 @@
 body {
-  background: #00A4EF;
+  background: #fff;
 }
 .brand {
-  background: url(microsoft-rev-01.png) 5px 2px no-repeat #000;
+  background: url(microsoft-rev-01.png) 5px 2px no-repeat #333;
   background-size: auto 30px;
   height: 36px;
   margin-bottom: 10px;
@@ -55,7 +55,7 @@ body {
   padding: 0 0 0.5em 0;
 }
 #demos a {
-  color: #fff;
+  color: #333;
 }
 .sent #showimage {
   opacity: 1;
@@ -100,15 +100,16 @@ canvas {
   -webkit-transform-origin: 50% 99%;
   transform-origin: 50% 99%;
   background: white;
-  background: linear-gradient(to bottom, #fff,transparent);
+  background: linear-gradient(to bottom, #00A4EF,transparent);
   padding: 5px;
 }
 .cardcontainer {
   float: left;
+  padding-top: 5px;
   transform: translate(-50%,0);
   margin-left: 50%;
   background: white;
-  background: linear-gradient(to bottom, #fff,transparent);
+  background: linear-gradient(to bottom, #00A4EF,transparent);
 }
 
 /* Button designs */
