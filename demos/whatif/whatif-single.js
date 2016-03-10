@@ -73,7 +73,7 @@
     img.src = c.toDataURL('image/jpeg', 1);
   }
 
-  var tinderswipe = new Hammer(document.querySelector('.cardcontainer'));
+  var tinderswipe = new Hammer(document.querySelector('#showimage'));
   tinderswipe.on('swipeleft', function(ev) {
     document.querySelector('.but-nope').click();
   });
