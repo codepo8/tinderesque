@@ -40,11 +40,14 @@ body {
   background: #00A4EF;
   color: #fff;
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 1.2vw;
   text-align: center;
   position: absolute;
   top: -100px;
   left: calc(50% - 110px);
+}
+.swipeinstructions p {
+  margin: .5em 0;
 }
 .sent .swipeinstructions {
   animation: whoop 5s 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -88,9 +91,9 @@ canvas {
   display: inline-block;
 }
 .cardcontainer button {
-  background: #0c0;
+  background: #7fba00;
   border: none;
-  color: #fff;
+  color: #000;
   border-radius: 50% 50%;
   font-size: 5vw;
   width: 6vw;
@@ -106,10 +109,10 @@ canvas {
 }
 .cardcontainer button:focus {
   outline: 0;
-  background: #0f0;
+  background: #7fba00;
 }
 .cardcontainer button.but-nope {
-  background: #c00;
+  background: #f25022;
   position: absolute;
   bottom: 50%;
   right: auto;
@@ -117,7 +120,7 @@ canvas {
 }
 .cardcontainer .but-nope:focus {
   outline: 0;
-  background: #f00;
+  background: #f25022;
 }
 
 .tinderesque .cardcontainer.yes .card {
