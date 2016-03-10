@@ -11,7 +11,7 @@ var simplecamshot = function() {
   var config = {
     startLabel: 'Start Camera',
     stopLabel: 'Stop Camera',
-    width: '320',
+    width: '640',
     createImage: true
   }
 
@@ -180,7 +180,7 @@ var simplecamshot = function() {
       canvas.getContext('2d').drawImage(
         video, 0, 0, video.videoWidth, video.videoHeight
       );
-      fireCustomEvent('imagetaken', canvas.toDataURL('image/png'));
+      fireCustomEvent('imagetaken', data);
     }
 
     /* Helper method to fire custom event */

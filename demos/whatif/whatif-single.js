@@ -34,8 +34,6 @@
     }
   });
 
-
-
   window.addEventListener('load', function(ev) {
     document.body.classList.add('loaded');
   });
@@ -46,6 +44,8 @@
   function disliked(detail) {
 
   }
+
+
 
   var img = document.querySelector('.card img');
   var c = document.querySelector('canvas');
@@ -81,11 +81,22 @@
     document.querySelector('.but-yay').click();
   });
 
-  if (document.querySelector('.build')) {
-    var buildtap = new Hammer(document.querySelector('.build'));
-    buildtap.on('tap', function(ev) {
-      document.body.classList.toggle('tweak');
-    });
-  }
-
+  /* video stuff */
+  document.querySelector('#simplecamshot').
+    addEventListener('click',function(ev) {
+    var t = ev.target;
+    if (t.tagName === 'IMG') {
+      ev.target.style.display = 'none';
+    }
+  });
+  document.querySelector('button.done').
+    addEventListener('click',function(ev) {
+      document.querySelector('#simplecamshot button').click();
+      document.querySelector('#getcamera').style.display = 'none';
+      window.open(document.querySelector('#simplecamshot img').src);
+  });
+  document.querySelector('#simplecamshot').
+    addEventListener('imagetaken',function(ev) {
+      document.querySelector('button.done').style.display = 'block';  });
+      simplecamshot.init(document.querySelector('#simplecamshot'));
 })();
