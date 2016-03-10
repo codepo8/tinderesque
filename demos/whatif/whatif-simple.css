@@ -176,12 +176,16 @@ form {
   line-height: 80px;
   font-size: 30px;
 }
+label {
+  width: 100px;
+}
 input[type=search] {
-  width: 80%;
+  width: calc(100% - 300px - 50px);
   font-size: 30px;
 }
 input[type=submit] {
   font-size: 30px;
+  width: 50px;
   background: transparent;
   border: none;
 }
