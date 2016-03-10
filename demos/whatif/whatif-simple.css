@@ -11,7 +11,7 @@ header, section, footer {
   padding: 0.5em 1em;
 }
 header {
-  background: url(microsoft-rev-01.png) 5px 26px no-repeat #ff8c00;
+  background: url(microsoft-rev-01.png) 5px 18px no-repeat #ff8c00;
   z-index: 3;
   position: relative;
 }
@@ -37,7 +37,7 @@ header {
     opacity: 0;
   }
   50% {
-    top: 240px;
+    top: 200px;
     opacity: 0.8;
   }
   100% {
@@ -45,7 +45,11 @@ header {
     opacity: 1;
   }
 }
-
+video {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 canvas {
   display: block;
   margin: 0 auto;
@@ -66,19 +70,19 @@ footer {
 }
 .card {
   color: #000;
-  width: 250px;
+  width: 400px;
   margin: 0 auto;
-  height: 300px;
+  height: 225px;
 }
 .cardcontainer {
-  width: 250px;
+  width: 400px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
 }
 .list ul.cardlist {
   margin: 0 0 10px 0;
-  height: 300px;
+  height: 225;
 }
 img {display: block;}
 
@@ -150,9 +154,6 @@ img {display: block;}
   padding: 0;
   margin: 0;
 }
-canvas {
-  display: none;
-}
 .maincontainer {
   position: relative;
   padding: 0 200px;
@@ -171,9 +172,9 @@ canvas {
   margin: 0 auto;
 }
 form {
-  min-height: 80px;
+  min-height: 60px;
   padding-left: 200px;
-  line-height: 80px;
+  line-height: 60px;
   font-size: 30px;
 }
 input[type=search] {
@@ -186,7 +187,15 @@ input[type=submit] {
   background: transparent;
   border: none;
 }
-button {
+button.video {
+  background: transparent;
+  border: none;
+  padding: 0;
+  border: none;
+  margin: 0 auto;
+  display: block;
+}
+.cardcontainer button {
   background: #0c0;
   border: none;
   font-size: 50px;

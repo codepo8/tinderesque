@@ -39,7 +39,7 @@
   display: inline-block;
 }
 
-button {
+.cardcontainer button {
   background: #0c0;
   border: none;
   color: #fff;
@@ -50,14 +50,14 @@ button {
   margin: 0 .5em;
   display: inline-block;
 }
-button:focus {
+.cardcontainer button:focus {
   outline: 0;
   background: #0f0;
 }
-.but-nope {
+.cardcontainer .but-nope {
   background: #c00;
 }
-.but-nope:focus {
+.cardcontainer .but-nope:focus {
   outline: 0;
   background: #f00;
 }

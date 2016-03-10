@@ -28,8 +28,8 @@
 
   var c = document.querySelector('canvas');
   var cx = c.getContext('2d');
-  c.width = 250;
-  c.height = 300;
+  c.width = 400;
+  c.height = 225;
   c.hasimg = false;
   var currentthumbone = null;
   var currentthumbtwo = null;
@@ -38,20 +38,20 @@
     var tinderlist = document.querySelector('.cardlist');
     var firstthumbs = document.querySelectorAll('.thumbs-one img');
     var secondthumbs = document.querySelectorAll('.thumbs-two img');
-    var all = firstthumbs.length;
+    var all = 1;//firstthumbs.length;
     var out = '';
     for (var i = 0; i < all; i++) {
       out += '<li class="';
       out += (i > 0) ? 'card' : 'card current';
-      out += '"><img src="' + miximages(firstthumbs[i], secondthumbs[i]) + '" alt=""></li>';
+      out += '"><a href="#" download="image.jpg"><img src="' + miximages(firstthumbs[i], secondthumbs[i]) + '" alt=""></a></li>';
     }
     tinderlist.innerHTML = out;
   }
 
   function miximages(img1, img2) {
-    cx.clearRect(0, 0, 250, 300);
-    cx.drawImage(img1, 0, 0, 250, 300);
-    cx.drawImage(img2, 0, 150, 250, 300);
+    cx.clearRect(0, 0, 400, 225);
+    cx.drawImage(img1, 0, 0);
+    cx.drawImage(img2, 200, 0);
     watermark();
     return c.toDataURL('image/jpeg', 0.5);
   }
@@ -70,11 +70,11 @@
   }
   function watermark() {
     cx.fillStyle = 'rgba(0,0,0,0.6)';
-    cx.fillRect(0, 270, 250, 320);
+    cx.fillRect(0, 200, 400, 225);
     cx.fillStyle = '#fff';
     cx.font = '14pt Calibri';
-    cx.fillText("what-if.net", 5, 290);
-    cx.fillText("#whatif", 180, 290);
+    cx.fillText("what-if.net", 5, 220);
+    cx.fillText("#whatif", 330, 220);
   }
 
   var tinderswipe = new Hammer(document.querySelector('.cardlist'));
