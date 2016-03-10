@@ -1,7 +1,7 @@
 body {
-  font-family: helvetica, arial, sans-serif;
-  background: #333;
-  color: #ccc;
+  font-family: "Segoe UI", helvetica, arial, sans-serif;
+  background: #ff8c00;
+  color: #333;
   font-size: 16px;
   padding: 0;
   margin: 0;
@@ -10,10 +10,42 @@ header, section, footer {
   display: block;
   padding: 0.5em 1em;
 }
-header, footer {
-  background: #000;
-  background: linear-gradient(#111,#000);
+header {
+  background: url(microsoft-rev-01.png) 5px 26px no-repeat #ff8c00;
+  z-index: 3;
+  position: relative;
 }
+.swipeinstructions {
+  z-index: 1;
+  width: 200px;
+  border-radius: 10px;
+  background: #00A4EF;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: -100px;
+  left: calc(50% - 110px);
+}
+.loaded .swipeinstructions {
+  animation: whoop 5s 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+@keyframes whoop {
+  0 {
+    top: -100px;
+    opacity: 0;
+  }
+  50% {
+    top: 240px;
+    opacity: 0.8;
+  }
+  100% {
+    top: -100px;
+    opacity: 1;
+  }
+}
+
 canvas {
   display: block;
   margin: 0 auto;
@@ -49,13 +81,15 @@ footer {
   height: 300px;
 }
 img {display: block;}
-.but-nope::after {
 
-  content: 'nope';
+
+.but-nope::after {
+  content: 'meh';
   position: absolute;
   top: -35px;
-  left: 20px;
+  left: 37%;
   font-size: 30px;
+  line-height: 35px;
   transform: rotate(-30deg);
   background: #c00;
   padding: .2em .4em;
@@ -69,10 +103,11 @@ img {display: block;}
   top: 35px;
 }
 .but-yay::after {
-  content: 'yep';
+  content: 'yeah!';
   position: absolute;
   top: -35px;
-  right: 20px;
+  right: 37%;
+  line-height: 35px;
   font-size: 30px;
   background: #0c0;
   color: #fff;
@@ -134,4 +169,31 @@ canvas {
 .list ul.cardlist img {
   display: block;
   margin: 0 auto;
+}
+form {
+  min-height: 80px;
+  padding-left: 200px;
+  line-height: 80px;
+  font-size: 30px;
+}
+input[type=search] {
+  width: 80%;
+  font-size: 30px;
+}
+input[type=submit] {
+  font-size: 30px;
+  background: transparent;
+  border: none;
+}
+button {
+  background: #0c0;
+  border: none;
+  font-size: 50px;
+  color: #fff;
+  border-radius: 50% 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 .5em;
+  display: inline-block;
 }

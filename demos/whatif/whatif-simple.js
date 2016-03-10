@@ -23,6 +23,7 @@
 
   window.addEventListener('load', function(ev) {
     seedlist();
+    document.body.classList.add('loaded');
   });
 
   var c = document.querySelector('canvas');
