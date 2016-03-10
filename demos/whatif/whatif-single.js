@@ -63,6 +63,10 @@
   }
 
   function watermark(img, x, y) {
+    var c = document.createElement('canvas');
+    cx = c.getContext('2d');
+    c.width = x;
+    c.height = y;
     cx.drawImage(img, 0, 0, x, y);
     cx.fillStyle = 'rgba(0,0,0,0.6)';
     cx.fillRect(0, y-25, x, y-25);

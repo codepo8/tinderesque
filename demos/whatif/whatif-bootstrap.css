@@ -49,7 +49,7 @@ body {
   opacity: 0;
   transition: 1s;
   min-height: 75vh;
-  display: none;
+  display: block;
 }
 #demos {
   margin: 1em 0;
