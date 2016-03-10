@@ -16,7 +16,7 @@ body {
   padding-left: 1em;
 }
 #getcamera .cardcontainer {
-  min-width: 640px;
+  max-width: 640px;
   min-height: 440px;
 }
 #simplecamshot button {
