@@ -8,7 +8,7 @@ body {
   margin-bottom: 10px;
 }
 #getcamera {
-  display: block;
+  display: none;
   position: relative;
   text-align: left;
 }
@@ -105,7 +105,6 @@ canvas {
   -webkit-transform-origin: 50% 99%;
   transform-origin: 50% 99%;
   background: white;
-  background: linear-gradient(to bottom, #00A4EF,transparent);
   padding: 5px;
 }
 .cardcontainer {
@@ -114,19 +113,18 @@ canvas {
   transform: translate(-50%,0);
   margin-left: 50%;
   background: white;
-  background: linear-gradient(to bottom, #00A4EF,transparent);
 }
 
 /* Button designs */
-.but-nope, .but-yay, .nopes, .yays {
+.but-nope, .but-yay, .nopes, .yays, .but-share {
   display: none;
 }
 
 .tinderesque .but-nope, .tinderesque .but-yay,
-.tinderesque .nopes, .tinderesque .yays {
+.tinderesque .nopes, .tinderesque .yays, .but-share {
   display: inline-block;
 }
-.but-nope, .but-yay {
+.but-nope, .but-yay, .but-share {
   background: #7fba00;
   border: none;
   color: #fff;
@@ -142,6 +140,11 @@ canvas {
   position: absolute;
   bottom: 50%;
   right: -4vw;
+}
+.but-share {
+  left: calc(50% - 3vw);
+  background: #00A4EF;
+  bottom: -3vh;
 }
 button:focus {
   outline: 0;

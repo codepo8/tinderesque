@@ -39,7 +39,7 @@
   });
 
   function liked(detail) {
-
+    console.log(detail);
   }
   function disliked(detail) {
 
@@ -84,6 +84,18 @@
   tinderswipe.on('swiperight', function(ev) {
     document.querySelector('.but-yay').click();
   });
+  tinderswipe.on('swipeup', function(ev) {
+    share();
+  });
+
+  document.querySelector('.but-share').addEventListener('click', function(ev) {
+    share();
+  });
+
+
+  function share() {
+    alert('sharing is caring');
+  }
 
   /* video stuff */
   document.querySelector('#simplecamshot').
