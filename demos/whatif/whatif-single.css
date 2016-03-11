@@ -154,11 +154,11 @@ footer {
   background: #f00;
 }
 
-.tinderesque .cardcontainer.yes .card {
+.tinderesque .cardcontainer.yes .current {
   -webkit-animation: yay 0.7s ease-out;
   animation: yay 0.7s ease-out;
 }
-.tinderesque .cardcontainer.nope .card {
+.tinderesque .cardcontainer.nope .current {
   -webkit-animation: nope 0.7s ease-out;
   animation: nope 0.7s ease-out;
 }

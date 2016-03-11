@@ -37,12 +37,6 @@ var simplecamshot = function() {
       navigator.msGetUserMedia
     );
 
-    /* If the browser isn't capable, leave */
-    if (!navigator.mediaDevices && !navigator.getMedia) {
-      button.parentNode.removeChild(button);
-      return;
-    }
-
     /*
       Creating the play button. The playing expando is there to
       determine its state in the event handler
@@ -190,6 +184,13 @@ var simplecamshot = function() {
       );
       container.dispatchEvent(newevent);
     }
+
+    /* If the browser isn't capable, leave */
+    if (!navigator.mediaDevices && !navigator.getMedia) {
+      button.parentNode.removeChild(button);
+      return;
+    }
+
   }
   return {
     config: config,

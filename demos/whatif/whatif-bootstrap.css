@@ -8,7 +8,7 @@ body {
   margin-bottom: 10px;
 }
 #getcamera {
-  display: none;
+  display: block;
   position: relative;
   text-align: left;
 }
@@ -106,13 +106,62 @@ canvas {
   transform-origin: 50% 99%;
   background: white;
   padding: 5px;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, 0);
+  left: 50%;
+  z-index: 1;
+}
+.current {
+  z-index: 12;
 }
 .cardcontainer {
   float: left;
   padding-top: 5px;
+  position: relative;
+  width: 90%;
+  height: 75vh;
   transform: translate(-50%,0);
   margin-left: 50%;
-  background: white;
+}
+
+.tinderesque .list .card {
+  opacity: 1;
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+.tinderesque .list .current {
+  opacity: 1;
+}
+.tinderesque ul {
+  padding: 0;
+}
+
+.cardlist li:nth-child(2) { z-index: 10; }
+.cardlist li:nth-child(3) { z-index: 9; }
+.cardlist li:nth-child(4) { z-index: 8; }
+.cardlist li:nth-child(5) { z-index: 7; }
+.cardlist li:nth-child(6) { z-index: 6; }
+.cardlist li:nth-child(7) { z-index: 5; }
+.cardlist li:nth-child(8) { z-index: 4; }
+.cardlist li:nth-child(9) { z-index: 3; }
+.cardlist li:nth-child(10) { z-index: 2; }
+
+.cardlist li:nth-child(even) {
+  transform: translate(-50%,0) rotate(4deg);
+  top: 5px;
+  transition: 0.4s;
+}
+.cardlist li:nth-child(3n) {
+  transform: translate(-50%,0) rotate(-3deg);
+  top: -5px;
+  transition: 0.4s;
+}
+.cardlist li:nth-child(5n) {
+  transform: translate(-50%,0) rotate(5deg);
+  top: -10px;
+  transition: 0.4s;
 }
 
 /* Button designs */
@@ -125,6 +174,7 @@ canvas {
   display: inline-block;
 }
 .but-nope, .but-yay, .but-share {
+  z-index: 20;
   background: #7fba00;
   border: none;
   color: #fff;
@@ -161,21 +211,20 @@ button:focus {
   background: #f25022;
 }
 
-.tinderesque .cardcontainer.yes .card {
+.tinderesque .cardcontainer.yes .current {
   -webkit-animation: yay 0.7s ease-out;
   animation: yay 0.7s ease-out;
 }
-.tinderesque .cardcontainer.nope .card {
+.tinderesque .cardcontainer.nope .current {
   -webkit-animation: nope 0.7s ease-out;
   animation: nope 0.7s ease-out;
-}
-.cardcontainer {
-  position: relative;
-  float: left;
 }
 .card img {
   display: block;
   height: 75vh;
+  border: 1px solid #000;
+  padding: 5px;
+  background: #00A4EF;
 }
 .but-nope::after {
   content: 'meh';
@@ -254,44 +303,44 @@ button.video {
 
 @keyframes yay {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%,0) rotate(0deg);
     opacity: 1;
   }
   to {
-    transform: rotate(40deg) translateY(-80px);
+    transform: translate(-50%,0)  rotate(40deg) translateY(-80px);
     opacity: 0;
   }
 }
 
 @-webkit-keyframes yay {
   from {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: translate(-50%,0)  rotate(0deg);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(40deg) translateY(-80px);
+    -webkit-transform: translate(-50%,0)  rotate(40deg) translateY(-80px);
     opacity: 0;
   }
 }
 
 @keyframes nope {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%,0) rotate(0deg);
     opacity: 1;
   }
   to {
-    transform: rotate(-40deg) translateY(-200px);
+    transform: translate(-50%,0) rotate(-40deg) translateY(-200px);
     opacity: 0;
   }
 }
 
 @-webkit-keyframes nope {
   from {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: translate(-50%,0) rotate(0deg);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(-40deg) translateY(-200px);
+    -webkit-transform: translate(-50%,0)  rotate(-40deg) translateY(-200px);
     opacity: 0;
   }
 }
