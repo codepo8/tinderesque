@@ -107,10 +107,10 @@ img {display: block;}
   z-index: 10;
 }
 .cardcontainer button.but-nope {
-  background: seagreen;
+  background: firebrick;
 }
 .cardcontainer button.but-yay {
-  background: firebrick;
+  background: seagreen;
 }
 .but-nope::after {
   content: 'nope';
