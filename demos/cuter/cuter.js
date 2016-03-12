@@ -39,7 +39,11 @@
       // add the cached content to the parent
       list.innerHTML += contents;
     }
-    all = document.body.querySelectorAll('.card').length + 1;
+    var listitems = document.body.querySelectorAll('.card');
+    all = listitems.length + 1;
+    for (var i = 0; i < all - 1; i++) {
+//      listitems[i].style.zIndex = (all - i);
+    }
     updatecounter();
   });
 

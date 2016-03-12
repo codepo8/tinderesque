@@ -24,22 +24,80 @@ h1 {
 footer {
   background: transparent;
   clear: both;
-  font-size: 10px; 
+  font-size: 10px;
   text-align: center;
   padding: 3em 0.5em 1em 0.5em;
+}
+.tinderesque .list .card {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+.tinderesque .list .current {
+  display: block;
+  z-index: 30;
+}
+.tinderesque .cardcontainer.yes .card {
+  -webkit-animation: none;
+  animation: none;
+}
+.tinderesque .cardcontainer.nope .card {
+  -webkit-animation: none;
+  animation: none;
+}
+.tinderesque .cardcontainer.yes .current {
+  -webkit-animation: yay 0.7s ease-out;
+  animation: yay 0.7s ease-out;
+}
+.tinderesque .cardcontainer.nope .current {
+  -webkit-animation: nope 0.7s ease-out;
+  animation: nope 0.7s ease-out;
+}
+.cardlist li {
+  z-index: 1;
+}
+.cardlist li:nth-child(0) {
+  z-index: 5;
+}
+.cardlist li:nth-child(1) {
+  z-index: 4;
+}
+.cardlist li:nth-child(2) {
+  z-index: 3;
+}
+
+.cardlist li:nth-child(even) {
+  transform: rotate(10deg);
+  top: 8px;
+  transition: 0.4s;
+}
+.cardlist li:nth-child(3n) {
+  transform: rotate(-8deg);
+  top: -8px;
+  transition: 0.4s;
+}
+.cardlist li:nth-child(5n) {
+  transform: rotate(7deg);
+  top: -13px;
+  transition: 0.4s;
 }
 .card {
   color: #000;
   width: 250px;
   height: 300px;
+  transition: 0.4s;
 }
 .cardcontainer {
   width: 250px;
   position: relative;
-  overflow: hidden;
   margin: 0 auto;
 }
 .list ul.cardlist {
+  position: relative;
   margin: 0 0 10px 0;
   height: 300px;
 }
@@ -93,6 +151,8 @@ img {display: block;}
   padding: 0 0 5px 5px;
   list-style: none;
   float: left;
+  transform: rotate(0);
+  top: 0;
 }
 #results.live {
   top: 0;

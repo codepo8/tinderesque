@@ -57,9 +57,14 @@
   var currentthumbtwo = null;
 
   function seedlist() {
-    c.width = img.offsetWidth;
-    c.height = img.offsetHeight;
-    watermark(img, c.width, c.height)
+    var listitems = document.querySelectorAll('.cardlist .card');
+    var all = listitems.length;
+    while (all--) {
+      var img = listitems[all].querySelector('img');
+      c.width = img.offsetWidth;
+      c.height = img.offsetHeight;
+      watermark(img, c.width, c.height)
+    }
   }
 
   function watermark(img, x, y) {
@@ -75,6 +80,11 @@
     cx.fillText("what-if.net", 5, y - 8);
     cx.fillText("#whatif", x - 65, y - 8);
     img.src = c.toDataURL('image/jpeg', 1);
+    var link = document.createElement('a');
+    link.href = c.toDataURL('image/jpeg', 1);
+    link.download = 'whatif.jpg';
+    img.parentNode.insertBefore(link, img);
+    link.appendChild(img);
   }
 
   var tinderswipe = new Hammer(document.querySelector('#showimage'));
