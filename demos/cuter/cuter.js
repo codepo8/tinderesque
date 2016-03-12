@@ -39,6 +39,8 @@
       // add the cached content to the parent
       list.innerHTML += contents;
     }
+    var listitems = document.body.querySelectorAll('.card');
+    all = listitems.length + 1;
     updatecounter();
   });
 
