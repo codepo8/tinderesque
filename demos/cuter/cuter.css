@@ -102,14 +102,24 @@ footer {
   height: 300px;
 }
 img {display: block;}
+
+.cardcontainer button.but-nope, .cardcontainer button.but-yay {
+  z-index: 10;
+}
+.cardcontainer button.but-nope {
+  background: seagreen;
+}
+.cardcontainer button.but-yay {
+  background: firebrick;
+}
 .but-nope::after {
   content: 'nope';
   position: absolute;
   top: -35px;
-  left: 20px;
+  left: -150px;
   font-size: 30px;
   transform: rotate(-30deg);
-  background: #c00;
+  background: firebrick;
   padding: .2em .4em;
   color: #fff;
   display: block;
@@ -118,15 +128,15 @@ img {display: block;}
 }
 .but-nope:hover::after {
   opacity: 1;
-  top: 35px;
+  top: 100px;
 }
 .but-yay::after {
   content: 'yep';
   position: absolute;
   top: -35px;
-  right: 20px;
+  right: -150px;
   font-size: 30px;
-  background: #0c0;
+  background: seagreen;
   color: #fff;
   padding: .2em .4em;
   transform: rotate(30deg);
@@ -136,7 +146,7 @@ img {display: block;}
 }
 .but-yay:hover::after {
   opacity: 1;
-  top: 35px;
+  top: 100px;
 }
 #results {
   opacity: 0;
