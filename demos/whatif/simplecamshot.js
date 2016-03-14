@@ -42,6 +42,8 @@ var simplecamshot = function() {
       determine its state in the event handler
     */
     var button = document.createElement('button');
+    button.classList.add('btn');
+    button.classList.add('btn-lg');
     button.playing = false;
     button.innerHTML = config.startLabel;
     container.appendChild(button);

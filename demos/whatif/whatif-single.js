@@ -115,11 +115,6 @@
       ev.target.style.display = 'none';
     }
   });
-  document.querySelector('#getcamera form').
-    addEventListener('submit',function(ev) {
-      ev.preventDefault();
-      // TODO: image upload
-  });
   document.querySelector('button.done').
     addEventListener('click',function(ev) {
       document.querySelector('#simplecamshot button').click();
@@ -128,6 +123,7 @@
   });
   document.querySelector('#simplecamshot').
     addEventListener('imagetaken',function(ev) {
-      document.querySelector('button.done').style.display = 'block';  });
+      document.querySelector('button.done').style.opacity = 1;  });
+      simplecamshot.config.width = 320;
       simplecamshot.init(document.querySelector('#simplecamshot'));
 })();
