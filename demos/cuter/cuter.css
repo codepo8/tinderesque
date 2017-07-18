@@ -1,182 +1,222 @@
 body {
-  font-family: helvetica, arial, sans-serif;
-  background: #333;
-  color: #ccc;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
+    font-family: helvetica, arial, sans-serif;
+    background: #333;
+    color: #ccc;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
-header, section, footer {
-  display: block;
-  padding: 0.5em 1em;
-}
-header, footer {
-  background: #000;
-  background: linear-gradient(#111,#000);
-}
-a {color: lime;}
-h1 {
-  color: #f8f8f8;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: center;
-}
+
+header,
+section,
 footer {
-  background: transparent;
-  clear: both;
-  font-size: 10px;
-  text-align: center;
-  padding: 3em 0.5em 1em 0.5em;
+    display: block;
+    padding: 0.5em 1em;
 }
+
+header,
+footer {
+    background: #000;
+    background: linear-gradient(#111, #000);
+}
+
+a {
+    color: lime;
+}
+
+h1 {
+    color: #f8f8f8;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+}
+
+footer {
+    background: transparent;
+    clear: both;
+    font-size: 10px;
+    text-align: center;
+    padding: 3em 0.5em 1em 0.5em;
+}
+
 .tinderesque .list .card {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0
-  outline: 1px solid transparent;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: 1px solid transparent;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
 }
+
 .tinderesque .list .current {
-  display: block;
-  z-index: 30;
+    display: block;
+    z-index: 30;
 }
+
 .tinderesque .cardcontainer.yes .card {
-  -webkit-animation: none;
-  animation: none;
+    -webkit-animation: none;
+    animation: none;
 }
+
 .tinderesque .cardcontainer.nope .card {
-  -webkit-animation: none;
-  animation: none;
+    -webkit-animation: none;
+    animation: none;
 }
+
 .tinderesque .cardcontainer.yes .current {
-  -webkit-animation: yay 0.7s ease-out;
-  animation: yay 0.7s ease-out;
+    -webkit-animation: yay 0.7s ease-out;
+    animation: yay 0.7s ease-out;
 }
+
 .tinderesque .cardcontainer.nope .current {
-  -webkit-animation: nope 0.7s ease-out;
-  animation: nope 0.7s ease-out;
+    -webkit-animation: nope 0.7s ease-out;
+    animation: nope 0.7s ease-out;
 }
+
 .cardlist li {
-  z-index: 1;
+    z-index: 1;
 }
+
 .cardlist li:nth-child(0) {
-  z-index: 5;
+    z-index: 5;
 }
+
 .cardlist li:nth-child(1) {
-  z-index: 4;
+    z-index: 4;
 }
+
 .cardlist li:nth-child(2) {
-  z-index: 3;
+    z-index: 3;
 }
 
 .cardlist li:nth-child(even) {
-  transform: rotate(10deg);
-  top: 8px;
-  transition: 0.4s;
+    transform: rotate(10deg);
+    top: 8px;
+    transition: 0.4s;
 }
-.cardlist li:nth-child(3n) {
-  transform: rotate(-8deg);
-  top: -8px;
-  transition: 0.4s;
-}
-.cardlist li:nth-child(5n) {
-  transform: rotate(7deg);
-  top: -13px;
-  transition: 0.4s;
-}
-.card {
-  color: #000;
-  width: 250px;
-  height: 300px;
-  transition: 0.4s;
-  padding: 5px;
-  background: #fff;
-  box-shadow: 3px 3px 5px rgba(0,0,0,.2);
-}
-.current {
-  box-shadow: 6px 6px 10px rgba(0,0,0,.8);
-}
-.cardcontainer {
-  width: 250px;
-  position: relative;
-  margin: 0 auto;
-}
-.list ul.cardlist {
-  position: relative;
-  margin: 0 0 40px 0;
-  height: 300px;
-}
-img {display: block;}
 
-.cardcontainer button.but-nope, .cardcontainer button.but-yay {
-  z-index: 10;
+.cardlist li:nth-child(3n) {
+    transform: rotate(-8deg);
+    top: -8px;
+    transition: 0.4s;
 }
-.cardcontainer button.but-nope {
-  background: firebrick;
+
+.cardlist li:nth-child(5n) {
+    transform: rotate(7deg);
+    top: -13px;
+    transition: 0.4s;
 }
+
+.card {
+    color: #000;
+    width: 250px;
+    height: 300px;
+    transition: 0.4s;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+}
+
+.current {
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, .8);
+}
+
+.cardcontainer {
+    width: 250px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.list ul.cardlist {
+    position: relative;
+    margin: 0 0 40px 0;
+    height: 300px;
+}
+
+img {
+    display: block;
+}
+
+.cardcontainer button.but-nope,
 .cardcontainer button.but-yay {
-  background: seagreen;
+    z-index: 10;
 }
+
+.cardcontainer button.but-nope {
+    background: firebrick;
+}
+
+.cardcontainer button.but-yay {
+    background: seagreen;
+}
+
 .but-nope::after {
-  content: 'nope';
-  position: absolute;
-  top: -35px;
-  left: -150px;
-  font-size: 30px;
-  transform: rotate(-30deg);
-  background: firebrick;
-  padding: .2em .4em;
-  color: #fff;
-  display: block;
-  transition: 0.4s;
-  opacity: 0;
+    content: 'nope';
+    position: absolute;
+    top: -35px;
+    left: -150px;
+    font-size: 30px;
+    transform: rotate(-30deg);
+    background: firebrick;
+    padding: .2em .4em;
+    color: #fff;
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
 }
+
 .but-nope:hover::after {
-  opacity: 1;
-  top: 100px;
+    opacity: 1;
+    top: 100px;
 }
+
 .but-yay::after {
-  content: 'yep';
-  position: absolute;
-  top: -35px;
-  right: -150px;
-  font-size: 30px;
-  background: seagreen;
-  color: #fff;
-  padding: .2em .4em;
-  transform: rotate(30deg);
-  display: block;
-  transition: 0.4s;
-  opacity: 0;
+    content: 'yep';
+    position: absolute;
+    top: -35px;
+    right: -150px;
+    font-size: 30px;
+    background: seagreen;
+    color: #fff;
+    padding: .2em .4em;
+    transform: rotate(30deg);
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
 }
+
 .but-yay:hover::after {
-  opacity: 1;
-  top: 100px;
+    opacity: 1;
+    top: 100px;
 }
+
 #results {
-  opacity: 0;
-  position: absolute;
-  top: -20000px;
-  transition: opacity 0.5s;
-  margin: 0;
-  padding: 0;
+    opacity: 0;
+    position: absolute;
+    top: -20000px;
+    transition: opacity 0.5s;
+    margin: 0;
+    padding: 0;
 }
+
 #results li {
-  margin: 0;
-  padding: 0 0 5px 5px;
-  list-style: none;
-  float: left;
-  transform: rotate(0);
-  top: 0;
+    margin: 0;
+    padding: 0 0 5px 5px;
+    list-style: none;
+    float: left;
+    transform: rotate(0);
+    top: 0;
 }
+
 #results.live {
-  top: 0;
-  position: relative;
-  opacity: 1;
+    top: 0;
+    position: relative;
+    opacity: 1;
 }
+
 #counter {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 }
