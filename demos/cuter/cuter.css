@@ -215,6 +215,31 @@ img {
     opacity: 1;
 }
 
+.extrainfo,
+.hoverinfo {
+    opacity: 0;
+}
+
+.live .extrainfo {
+    opacity: 1;
+}
+
+.live .hoverinfo {
+    opacity: 1;
+}
+
+.card:hover .hoverinfo {
+    color: #fff;
+    background: #000;
+    background: rgba(0, 0, 0, .7);
+    padding: .5em;
+    opacity: 1;
+    position: absolute;
+    bottom: 1em;
+    left: .5em;
+    line-height: 1em;
+}
+
 #counter {
     position: absolute;
     bottom: 15px;
