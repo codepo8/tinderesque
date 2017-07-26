@@ -218,14 +218,16 @@ img {
 .extrainfo,
 .hoverinfo {
     opacity: 0;
+    position: absolute;
+    bottom: 1em;
+    left: .5em;
+    line-height: 1em;
 }
 
-.live .extrainfo {
+.live .hoverinfo,
+.live. extrainfo {
     opacity: 1;
-}
-
-.live .hoverinfo {
-    opacity: 1;
+    position: relative;
 }
 
 .card:hover .hoverinfo {
@@ -235,9 +237,6 @@ img {
     padding: .5em;
     opacity: 1;
     position: absolute;
-    bottom: 1em;
-    left: .5em;
-    line-height: 1em;
 }
 
 #counter {
